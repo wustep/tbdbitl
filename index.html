@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="img/favicon.ico">
+	<title>TBDBITL</title>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/fonts/capita light/stylesheet.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+ </head>
+ <body>
+		<a href="./" class="navbar-brand">The Ohio State Unviersity Marching Band</a>
+		<div class="collapse navbar-collapse" id="navbar">
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" href="">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="">Tryouts</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="">Band</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="">Songs</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<span class="stat1">Stat1: 64px</span><br>
+				<span class="stat2">Stat2: 48px</span><br>
+				<span class="stat3">Stat3: 32px</span><br><br><br>
+				<a href="#" class="stat3" data-toggle="tooltip" title="Some tooltip text!">Tooltip Test</a><br>
+				<a href="#" class="stat4" data-toggle="tooltip" title="Some tooltip text!">Tooltip Test 2</a>
+			</div> 
+			<div class="col-md-6">
+				<br><h4>Instruments</h1>
+				<div id="instruments-pie"></div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/lib/jquery.min.js"></script>
+	<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+	<script src="js/lib/bootstrap.min.js"></script>
+	<script src="js/lib/d3.min.js"></script>
+	<script src="js/pie.js"></script>
+	<script>
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip(); // Activate all tooltips
+		})
+	</script>
+ </body>
+</html>
