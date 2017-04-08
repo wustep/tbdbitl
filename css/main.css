@@ -13,13 +13,13 @@ body {
 	font-weight: bold;
 	color: #bb0000;
 }
-.stat0 {
+.stat0, #acronym {
 	font-size: 128px;
 }
 .stat1 {
 	font-size: 64px;
 }
-.stat2 {
+.stat2, #expansion {
 	font-size: 48px;
 }
 .stat3 {
@@ -28,7 +28,17 @@ body {
 .stat4 {
 	font-size: 18px;
 }
-
+#acronym, #expansion {
+	font-family: 'CapitaLig'; 
+	color: #bb0000;
+}
+.acro {
+	cursor: default;
+}
+.acro.selected {
+	font-weight: bold;
+	text-decoration: underline;
+}
 /* Dynamic Donut Pie Chart */
 #instruments-pie {
 	width: 800px;
