@@ -133,6 +133,8 @@ function change(data) {
 $("body").keydown(function(e) {
 	if (e.keyCode == 39) {
 		getNextRow(dataset, csv);
+	} else if (e.keyCode == 37) {
+		removeLastRow(dataset, csv);
 	}
 });
 
@@ -162,11 +164,48 @@ function getNextRow(dataset, csv) { // Get next band row of instruments and add 
 	return row;
 }
 
-function addToDataset(dataset, label, value) { // Add instrument to dataset or increment proper category
+function removeLastRow() {
+	if (rowNum >= 2 && rowNum <= csv.length) {
+		rowNum--;
+		var row = csv[rowNum][0];
+		while (rowNum >= 1) {
+			if (csv[rowNum][0] != row) { // New row, end here.
+				row = csv[rowNum][0];
+				break;
+			}
+			addToDataset(dataset, csv[rowNum][1], csv[rowNum][2] * -1);
+			rowNum--;
+		}
+		rowNum++;
+		change(dataset);
+		change(dataset);
+		if (row != "A" && row != "") {
+			var t = (row == "A") ? ("Row: A") : ("Rows: A-"+row);
+			$('#row-text').fadeOut("fast", function(){
+				$("#row-text").html('');
+				d3.select("#row-text").append('tspan').attr('x',0).attr('dy',5).text(t);
+				d3.select("#row-text").append('tspan').attr('x',0).attr('dy',20).text(totalInstruments+" musicians");
+				$("#row-text").fadeIn("fast");
+			});
+		} else {
+			$('#row-text').html('');		
+		}
+		return row;
+	} else {
+		$('#row-text').html('');
+	}
+}
+
+function addToDataset(dataset, label, value) { // Add/remove instrument to dataset or increment proper category
 	for (var i = 0; i < dataset.length; i++) {
 		if (dataset[i]["label"] == label) {
-			dataset[i]["value"] = parseInt(dataset[i]["value"]) + parseInt(value);
+			var newVal = parseInt(dataset[i]["value"]) + parseInt(value);
 			totalInstruments += parseInt(value);
+			if (newVal > 0) {
+				dataset[i]["value"] = newVal;
+			} else {
+				dataset.splice(i, 1);
+			}
 			return 1;
 		}
 	}
