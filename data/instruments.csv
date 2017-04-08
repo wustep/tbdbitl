@@ -1,21 +1,22 @@
-A,7,E♭ Cornets
-A,7,Trumpets
-B,14,Trumpets
-C,14,Flugelhorns
-E,14,Mellophones
-F,14,Trombones
-H,14,Baritones
-I,14,Snare Drums
-J,5,Tenor Drums
-J,5,Bass Drums
-J,5,Symbals
-K,14,Sousaphones
-L,14,Sousaphones
-M,14,Baritones
-Q,14,Trombones
-R,14,Mellophones
-S,7,Flugelhorns
-S,7,Trumpets
-T,14,Trumpets
-X,7,E♭ Cornets
-X,7,Trumpets
+row,label,value
+A,E♭ Cornets,7
+A,Trumpets,7
+B,Trumpets,14
+C,Flugelhorns,14
+E,Mellophones,14
+F,Trombones,14
+H,Baritones,14
+I,Snare Drums,14
+J,Tenor Drums,5
+J,Bass Drums,5
+J,Symbals,5
+K,Sousaphones,14
+L,Sousaphones,14
+M,Baritones,14
+Q,Trombones,14
+R,Mellophones,14
+S,Flugelhorns,7
+S,Trumpets,7
+T,Trumpets,14
+X,E♭ Cornets,7
+X,Trumpets,7

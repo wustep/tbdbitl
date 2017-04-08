@@ -8,10 +8,13 @@ body {
 }
 
 /* Statistics */
-.stat1, .stat2, .stat3 {
+.stat0, .stat1, .stat2, .stat3 {
 	font-family: 'CapitaLig'; 
 	font-weight: bold;
 	color: #bb0000;
+}
+.stat0 {
+	font-size: 128px;
 }
 .stat1 {
 	font-size: 64px;
