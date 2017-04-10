@@ -25,13 +25,9 @@ var pie = d3.pie().sort(null)
 var arc = d3.arc().outerRadius(radius * 0.8).innerRadius(radius * 0.4);
 var outerArc = d3.arc().innerRadius(radius * 0.9).outerRadius(radius * 0.9);
 
-
-var div = d3.select("#instruments-pie").append("div").attr("class", "toolTip");
-
+var div = d3.select("#instruments-pie").append("div");
 div.style("display", "none");
-
 svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
 svg.append("text").attr("id", "row-text").attr("text-anchor", "middle");
 
 var colorRange = d3.schemeCategory20;
@@ -42,14 +38,21 @@ $.get( "data/instruments.csv", function( data ) {
 	getNextRow(dataset, csv);
 });
 
+var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return d.data.value + " " + (d.data.label)+" ("+Math.floor((d.data.value/totalInstruments)*100)+"%)"; });
+
+svg.call(tip);
+
 function change(data) {
+	tip.hide();
 	/* ------- PIE SLICES -------*/
 	var slice = svg.select(".slices").selectAll("path.slice")
         .data(pie(data), function(d){ return d.data.label });
     slice.enter()
         .insert("path")
         .style("fill", function(d) { return color(d.data.label); })
-        .attr("class", "slice");
+        .attr("class", "slice")
+		.on('mouseover', tip.show)
+		.on('mouseout', tip.hide);
     slice.transition().duration(1000).attrTween("d", function(d) {
         this._current = this._current || d;
         var interpolate = d3.interpolate(this._current, d);
@@ -58,16 +61,6 @@ function change(data) {
             return arc(interpolate(t));
 		};
 	})
-    slice.on("mousemove", function(d){
-        //TODO: Fix tooltip button
-		//div.style("left", (d3.event.pageX - 34) + "px");
-        //div.style("top", (d3.event.pageY - 12) + "px");
-        div.style("display", "inline");
-        div.html((d.data.label)+"<br>"+Math.floor((d.data.value/totalInstruments)*100)+"%");
-    });
-    slice.on("mouseout", function(d){
-            div.style("display", "none");
-        });
     slice.exit().remove();
 
     /* ------- TEXT LABELS -------*/
@@ -156,8 +149,8 @@ function getNextRow(dataset, csv) { // Get next band row of instruments and add 
 		var t = (row == "A") ? ("Row: A") : ("Rows: A-"+row);
 		$('#row-text').fadeOut("fast", function(){
 			$("#row-text").html('');
-			d3.select("#row-text").append('tspan').attr('x',0).attr('dy',5).text(t);
-			d3.select("#row-text").append('tspan').attr('x',0).attr('dy',20).text(totalInstruments+" musicians");
+			d3.select("#row-text").append('tspan').attr('x',0).attr('dy',0).text(t);
+			d3.select("#row-text").append('tspan').attr('x',0).attr('dy',15).text(totalInstruments+" musicians");
 			$("#row-text").fadeIn("fast");
 		});
 	}

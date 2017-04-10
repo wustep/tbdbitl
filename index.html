@@ -10,6 +10,7 @@
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/fonts/capita light/stylesheet.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
+	<link rel="stylesheet" href="//rawgithub.com/Caged/d3-tip/master/examples/example-styles.css">
  </head>
  <body>
 	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
@@ -26,10 +27,13 @@
 					<a class="nav-link" href="">Tryouts</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="">Band</a>
+					<a class="nav-link" href="">Instruments</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="">Songs</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="">Infographic</a>
 				</li>
 			</ul>
 		</div>
@@ -49,26 +53,50 @@
 					<span class="I0 acro">In</span> 
 					<span class="T1 acro">The</span> 
 					<span class="L0 acro">Land</span>
-				</span><br>
+				</span><hr>
 				<br>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-6">
-				<span class="stat1">Stat1: 64px</span><br>
-				<span class="stat2">Stat2: 48px</span><br>
-				<span class="stat3">Stat3: 32px</span><br><br><br>
-				<a href="#" class="stat3" data-toggle="tooltip" title="Some tooltip text!">Tooltip Test</a><br>
-				<a href="#" class="stat4" data-toggle="tooltip" title="Some tooltip text!">Tooltip Test 2</a>
-			</div> 
-			<div class="col-md-6">
+			<div class="col-md-12">
+				<h3>About</h3><br>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-6">
-				<br><h3>Instruments</h3>
+			<div class="col-md-12">
+				<h3>Tryouts</h3><br>
+			</div>
+		</div>	
+		<div class="row">
+			<div class="col-md-7">
+				<h3>Instruments</h3>
 				<div id="instruments-pie"></div><br>
-				<p>test</p>
+			</div>
+			<div class="col-md-5">
+				<!--<h3>Test</h3>
+				<p>asdfadsf<br>asdfadsf<br>adsfadsf<br>adsfadsfadsf<br>asdfasdfffs<br></p>-->
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12" align="center">
+				<div class="jumbotron">
+					<h1 class="display-3">About the Infographic</h1>
+					<p class="lead">This infographic was developed and designed for <a href="https://eed.osu.edu/technical-communications/engr-2367">ENGR2367H</a> with Lynn Hall by:<br><span class="badge badge-default">Web Developer</span> Stephen Wu&nbsp;&nbsp;<span class="badge badge-default">Graphic Designer</span> Rui Lu&nbsp;&nbsp;<span class="badge badge-default">TBDBITL Member</span> Lauren Haack</p>
+					<hr class="my-4">
+					<p class="lead">
+						Sources:<br>
+						<ul class="list-group">
+							<li class="list-group-item"><a href="https://tbdbitl.osu.edu/sites/tbdbitl.osu.edu/files/media-guide-2016-web.pdf">The Ohio State University Marching Band: Media and Performance Guide 2016</a></li>
+							<li class="list-group-item"><a href="https://www.tbdbitl.com/grandroster.php">TBDBITL Grand Roster - 1878 through 2016</a></li>
+							<li class="list-group-item"><a href="https://twitter.com/TBDBITL/status/768124246694334464">OSU Marching Band 2016 Majors</a></li>
+						</ul>
+					</p><p class="lead">
+						Assets:<br>
+						<ul class="list-group">
+							<li class="list-group-item"><a href="https://brand.osu.edu/">Ohio State Brand Guidelines</a></li>
+						</ul>
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -77,6 +105,7 @@
 	<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 	<script src="js/lib/bootstrap.min.js"></script>
 	<script src="js/lib/d3.min.js"></script>
+	<script src="js/lib/d3.tip.js"></script>
 	<script src="js/lib/jquery-csv.min.js"></script>
 	<script src="js/acronym.js"></script>
 	<script src="js/pie.js"></script>

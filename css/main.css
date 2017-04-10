@@ -41,8 +41,8 @@ body {
 }
 /* Dynamic Donut Pie Chart */
 #instruments-pie {
-	width: 800px;
-	height: 600px;
+	width: 700px;
+	height: 450px;
 }
 svg {
 	width: 100%;
