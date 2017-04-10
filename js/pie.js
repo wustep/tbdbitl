@@ -43,10 +43,10 @@ $.get( "data/instruments.csv", function( data ) {
 	getNextRow(dataset, dataset2, csv);
 });
 
-var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return d.data.value + " " + (d.data.label)+" ("+Math.floor((d.data.value/totalInstruments)*100)+"%)"; });
+var tip = d3.tip().attr('class', 'd3-tip').html(function(d, i) { return "<span class=\"instrument-"+i+"\"></span>"+d.data.value + " " + (d.data.label)+" ("+Math.floor((d.data.value/totalInstruments)*100)+"%)"; });
 
 var tip2 = d3.tip().attr('class', 'd3-tip').html(function(d) { 
-	return "<span class=\"instrument-"+d.instrument+"\"></span><br>" + d.row + " row: " + dataset[d.instrument]["label"];
+	return "<span class=\"instrument-"+d.instrument+"\"></span>" + d.row + " row: " + dataset[d.instrument]["label"];
 }).offset([-10,0]);
 
 svg.call(tip);

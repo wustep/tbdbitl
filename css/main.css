@@ -81,6 +81,12 @@ polyline {
 	width: 700px;
 	height: 450px;
 }
-.instruments-1 {
-	
+.instrument-0 {
+	background: url("../img/instrument-test.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+    width: 100%;
+	height: 50px;
+	margin: 2px;
+	display: block;
 }
