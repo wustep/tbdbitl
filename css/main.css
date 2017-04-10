@@ -76,3 +76,11 @@ polyline {
     padding: 5px;
     text-align: center;
 }
+/* Dynamic Instruments Chart */
+#instruments-chart {
+	width: 700px;
+	height: 450px;
+}
+.instruments-1 {
+	
+}

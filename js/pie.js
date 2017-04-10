@@ -2,10 +2,15 @@
 
 var csv = [];
 var rowNum = 1; // Last row accessed. 0 is the column headers so we don't need to re-access that
-var dataset = [];
+var dataset = []; // Data organized by instrument and count
+var dataset2 = []; // Data organized by instrumentId and rowNum
 var totalInstruments = 0;
 
 /* Adapted from animated donut chart with labels, legends and tooltips: http://bl.ocks.org/juan-cb/1984c7f2b446fffeedde */
+
+var width = 700,
+    height = 450,
+	radius = Math.min(width, height) / 2;
 
 var svg = d3.select("#instruments-pie").append("svg").append("g");
 svg.append("g").attr("class", "slices");
@@ -13,10 +18,10 @@ svg.append("g").attr("class", "labelName");
 svg.append("g").attr("class", "labelValue");
 svg.append("g").attr("class", "lines");
 
-var width = 700,
-    height = 450,
-	radius = Math.min(width, height) / 2;
-	
+var svg2 = d3.select("#instruments-chart").append("svg")
+	.attr("width", width)
+	.attr("height", height);
+
 var pie = d3.pie().sort(null)
 	.value(function(d) {
 		return d.value;
@@ -35,15 +40,33 @@ var color = d3.scaleOrdinal(colorRange);
 
 $.get( "data/instruments.csv", function( data ) {
 	csv = jQuery.csv.toArrays(data);
-	getNextRow(dataset, csv);
+	getNextRow(dataset, dataset2, csv);
 });
 
 var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return d.data.value + " " + (d.data.label)+" ("+Math.floor((d.data.value/totalInstruments)*100)+"%)"; });
 
-svg.call(tip);
+var tip2 = d3.tip().attr('class', 'd3-tip').html(function(d) { 
+	return "<span class=\"instrument-"+d.instrument+"\"></span><br>" + d.row + " row: " + dataset[d.instrument]["label"];
+}).offset([-10,0]);
 
-function change(data) {
+svg.call(tip);
+svg2.call(tip2);
+
+function change(data, data2) {
 	tip.hide();
+	/* ------- Circle graph ------ */
+	var circles = svg2.selectAll("circle")
+		.data(data2);
+	circles.enter().append("circle")
+		.style("stroke", function(d, i){ return d3.schemeCategory20[d.instrument] })
+		.style("fill", function(d, i){ return d3.schemeCategory20[d.instrument] })
+		.attr("r", 8)
+		.attr("cx", function(d, i) { return 25 + (d.colId * 27); })
+		.attr("cy", function(d, i) { return 20 + (d.rowId * 27); })
+		.on('mouseover', tip2.show)
+		.on('mouseout', tip2.hide);
+	circles.exit().remove();
+	
 	/* ------- PIE SLICES -------*/
 	var slice = svg.select(".slices").selectAll("path.slice")
         .data(pie(data), function(d){ return d.data.label });
@@ -125,13 +148,13 @@ function change(data) {
 
 $("body").keydown(function(e) {
 	if (e.keyCode == 39) {
-		getNextRow(dataset, csv);
+		getNextRow(dataset, dataset2, csv);
 	} else if (e.keyCode == 37) {
-		removeLastRow(dataset, csv);
+		removeLastRow(dataset, dataset2, csv);
 	}
 });
 
-function getNextRow(dataset, csv) { // Get next band row of instruments and add to dataset
+function getNextRow(dataset, dataset2, csv) { // Get next band row of instruments and add to dataset
 	var row = "";
 	if (rowNum < csv.length) {
 		row = csv[rowNum][0];
@@ -139,12 +162,12 @@ function getNextRow(dataset, csv) { // Get next band row of instruments and add 
 			if (csv[rowNum][0] != row) { // New row, end here.
 				break;
 			}
-			addToDataset(dataset, csv[rowNum][1], csv[rowNum][2]);
+			addToDataset(dataset, dataset2, csv[rowNum][1], csv[rowNum][2], csv[rowNum][0]);
 			rowNum++;
 		}
 	}
-	change(dataset);
-	change(dataset);
+	change(dataset, dataset2);
+	change(dataset, dataset2);
 	if (row != "") {
 		var t = (row == "A") ? ("Row: A") : ("Rows: A-"+row);
 		$('#row-text').fadeOut("fast", function(){
@@ -166,12 +189,12 @@ function removeLastRow() {
 				row = csv[rowNum][0];
 				break;
 			}
-			addToDataset(dataset, csv[rowNum][1], csv[rowNum][2] * -1);
+			addToDataset(dataset, dataset2, csv[rowNum][1], csv[rowNum][2] * -1, csv[rowNum][0]);
 			rowNum--;
 		}
 		rowNum++;
-		change(dataset);
-		change(dataset);
+		change(dataset, dataset2);
+		change(dataset, dataset2);
 		if (row != "A" && row != "") {
 			var t = (row == "A") ? ("Row: A") : ("Rows: A-"+row);
 			$('#row-text').fadeOut("fast", function(){
@@ -189,8 +212,10 @@ function removeLastRow() {
 	}
 }
 
-function addToDataset(dataset, label, value) { // Add/remove instrument to dataset or increment proper category
-	for (var i = 0; i < dataset.length; i++) {
+function addToDataset(dataset, dataset2, label, value, row) { // Add/remove instrument to dataset or increment proper category
+	var instrumentId = 0; 
+	var done = 0;
+	for (var i = 0; i < dataset.length; i++) { // Add to dataset1
 		if (dataset[i]["label"] == label) {
 			var newVal = parseInt(dataset[i]["value"]) + parseInt(value);
 			totalInstruments += parseInt(value);
@@ -199,10 +224,34 @@ function addToDataset(dataset, label, value) { // Add/remove instrument to datas
 			} else {
 				dataset.splice(i, 1);
 			}
-			return 1;
+			done = 1;
+			break;
+		}
+		instrumentId++;
+	}
+	if (!done) {
+		dataset.push({"label": label, "value": value});
+		totalInstruments += parseInt(value);
+	}
+	
+	if (parseInt(value) > 0) { // Positive, push instrument and rows
+		var rowId = 0; // Get row number (A=1, B=2, etc.)
+		if (dataset2.length > 0) {
+			 if (row == dataset2[dataset2.length-1]["row"]) { // same row
+				rowId = dataset2[dataset2.length-1]["rowId"];
+			 } else { // new row
+				 rowId = dataset2[dataset2.length-1]["rowId"] + 1;
+			 }
+		}
+		var colId = (dataset2.length > 0 && row == dataset2[dataset2.length-1]["row"]) ? (dataset2[dataset2.length-1]["colId"] + 1) : 0;
+		for (var j = 0; j < value; j++) {
+			dataset2.push({"instrument": instrumentId, "row": row, "rowId": rowId, "colId": colId});
+			colId++;
+		}
+	} else { // Negative, have to pop out last instruments
+		for (var j = 0; j > parseInt(value); j--) {
+			dataset2.pop();
 		}
 	}
-	dataset.push({"label": label, "value": value});
-	totalInstruments += parseInt(value);
 	return 1;
 }
