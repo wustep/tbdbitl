@@ -9,7 +9,7 @@ body {
 
 /* Statistics */
 .stat0, .stat1, .stat2, .stat3 {
-	font-family: 'CapitaLig'; 
+	font-family: "CapitaLig", "Open-Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	color: #bb0000;
 }
@@ -41,7 +41,7 @@ body {
 }
 /* Dynamic Donut Pie Chart */
 #instruments-pie {
-	width: 700px;
+	width: 660px;
 	height: 450px;
 }
 svg {
@@ -78,7 +78,7 @@ polyline {
 }
 /* Dynamic Instruments Chart */
 #instruments-chart {
-	width: 700px;
+	width: 460px;
 	height: 450px;
 }
 .instrument-0 { background: url("../img/instruments/0.png"); height: 70px }

@@ -8,7 +8,7 @@ var totalInstruments = 0;
 
 /* Adapted from animated donut chart with labels, legends and tooltips: http://bl.ocks.org/juan-cb/1984c7f2b446fffeedde */
 
-var width = 700,
+var width = 660,
     height = 450,
 	radius = Math.min(width, height) / 2;
 
@@ -18,9 +18,12 @@ svg.append("g").attr("class", "labelName");
 svg.append("g").attr("class", "labelValue");
 svg.append("g").attr("class", "lines");
 
+var width2 = 460,
+	height2 = 450;
+
 var svg2 = d3.select("#instruments-chart").append("svg")
-	.attr("width", width)
-	.attr("height", height);
+	.attr("width", width2)
+	.attr("height", height2);
 
 var pie = d3.pie().sort(null)
 	.value(function(d) {
@@ -62,8 +65,8 @@ function change(data, data2) {
 		.style("stroke", function(d, i){ return d3.schemeCategory20[d.instrument] })
 		.style("fill", function(d, i){ return d3.schemeCategory20[d.instrument] })
 		.attr("r", 8)
-		.attr("cx", function(d, i) { return 25 + (d.colId * 27); })
-		.attr("cy", function(d, i) { return 20 + (d.rowId * 27); })
+		.attr("cx", function(d, i) { return 25 + (d.colId * 24); })
+		.attr("cy", function(d, i) { return 20 + (d.rowId * 26); })
 		.on('mouseover', tip2.show)
 		.on('mouseout', tip2.hide);
 	circles.exit().remove();
