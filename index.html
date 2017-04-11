@@ -13,7 +13,7 @@
 	<link href="css/d3-tip.css" rel="stylesheet">
  </head>
  <body>
-	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+	<nav class="navbar navbar-toggleable-md navbar-light fixed-top bg-faded">
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -21,19 +21,19 @@
 		<div class="collapse navbar-collapse" id="navbar">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="">About</a>
+					<a class="nav-link" href="#about">About</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="">Tryouts</a>
+					<a class="nav-link" href="#tryouts">Tryouts</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="">Instruments</a>
+					<a class="nav-link" href="#instruments">Instruments</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="">Songs</a>
+					<a class="nav-link" href="#songs">Songs</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="">Infographic</a>
+					<a class="nav-link" href="#infographic">Infographic</a>
 				</li>
 			</ul>
 		</div>
@@ -59,17 +59,17 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<h3>About</h3><br>
+				<h3><a id="about">About</a></h3><br>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<h3>Tryouts</h3><br>
+				<h3><a id="tryouts">Tryouts</a></h3><br>
 			</div>
 		</div>	
 		<div class="row">
 			<div class="col-xs-7">
-				<h3>Instruments</h3>
+				<h3><a id="instruments">Instruments</a></h3>
 				<div id="instruments-pie"></div><br>
 			</div>
 			<div class="col-xs-5" align="center">
@@ -80,7 +80,7 @@
 		<div class="row">
 			<div class="col-md-12" align="center">
 				<div class="jumbotron">
-					<h1 class="display-3">About the Infographic</h1>
+					<h1 class="display-3"><a id="infographic">About the Infographic</a></h1>
 					<p class="lead">This infographic was developed and designed for <a href="https://eed.osu.edu/technical-communications/engr-2367">ENGR2367H</a> with Lynn Hall by:<br><span class="badge badge-default">Web Developer</span> Stephen Wu&nbsp;&nbsp;<span class="badge badge-default">Graphic Designer</span> Rui Lu&nbsp;&nbsp;<span class="badge badge-default">TBDBITL Member</span> Lauren Haack</p>
 					<hr class="my-4">
 					<p class="lead">
@@ -115,6 +115,19 @@
 		$(function () {
 			$('[data-toggle="tooltip"]').tooltip(); // Activate all tooltips
 		})
+		
+		// Smooth scroll for anchors: https://stackoverflow.com/questions/19012495/smooth-scroll-to-div-id-jquery
+		$(document).on('click', 'a[href^="#"]', function(e) {
+			console.log("Test");
+			var id = $(this).attr('href');
+			var $id = $(id);
+			if ($id.length === 0) {
+				return;
+			}
+			e.preventDefault();
+			var pos = $id.offset().top - 56;
+			$('body, html').animate({scrollTop: pos});
+		});
 	</script>
  </body>
 </html>
