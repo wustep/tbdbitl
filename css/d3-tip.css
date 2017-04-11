@@ -7,6 +7,7 @@
   border-radius: 2px;
   border: 1px solid #777;
   pointer-events: none;
+  text-align: center;
 }
 
 /* Creates a small triangle extender for the tooltip */

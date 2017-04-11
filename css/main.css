@@ -1,3 +1,4 @@
+/* Main container */
 body {
 	/*background-color: #E9E9E9;*/
 	padding-top: 55px;
@@ -8,11 +9,20 @@ body {
 	 font-weight: bold;
 }
 
+/* Bootstrap Tooltips */
+.tooltip-inner {
+	text-align: left;
+	max-width: none;
+}
+.stat[data-toggle="tooltip"] {
+    border-bottom: 5px double #bb0000;
+}
+
 /* Statistics */
-.stat0, .stat1, .stat2, .stat3 {
+.stat {
 	font-family: "CapitaLig", "Open-Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: bold;
-	color: #bb0000;
+	color: #bb0000 !important;
 }
 .stat0, #acronym {
 	font-size: 128px;
@@ -33,7 +43,7 @@ body {
 	font-family: 'CapitaLig'; 
 	color: #bb0000;
 }
-.acro {
+.acro, .stat {
 	cursor: default;
 }
 .acro.selected {

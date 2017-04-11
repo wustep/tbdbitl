@@ -49,7 +49,8 @@ $.get( "data/instruments.csv", function( data ) { // TODO: Convert this to d3.cs
 var tip = d3.tip().attr('class', 'd3-tip').html(function(d, i) { return "<span class=\"instrument instrument-"+i+"\"></span>"+d.data.value + " " + (d.data.label)+" ("+Math.floor((d.data.value/totalInstruments)*100)+"%)"; });
 
 var tip2 = d3.tip().attr('class', 'd3-tip').html(function(d) { 
-	return "<span class=\"instrument instrument-"+d.instrument+"\"></span>" + d.row + " row: " + dataset[d.instrument]["label"];
+	var alt = (d.colId > 11) ? "<br>(Alternate)" : "<br>";
+	return "<span class=\"instrument instrument-"+d.instrument+"\"></span>" + d.row + " row: " + dataset[d.instrument]["label"] + alt;
 }).offset([-10,0]);
 
 svg.call(tip);
@@ -65,7 +66,10 @@ function change(data, data2) {
 		.style("stroke", function(d, i){ return d3.schemeCategory20[d.instrument] })
 		.style("fill", function(d, i){ return d3.schemeCategory20[d.instrument] })
 		.attr("r", 8)
-		.attr("cx", function(d, i) { return 25 + (d.colId * 24); })
+		.attr("cx", function(d, i) { 
+			var extra = (d.colId > 11) ? 10 : 0;
+			return 25 + (d.colId * 24) + extra; 
+		})
 		.attr("cy", function(d, i) { return 20 + (d.rowId * 26); })
 		.on('mouseover', tip2.show)
 		.on('mouseout', tip2.hide);

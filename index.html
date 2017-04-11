@@ -17,23 +17,23 @@
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<a href="./" class="navbar-brand">The Ohio State Unviersity Marching Band</a>
+		<a href="#top" class="navbar-brand">The Ohio State Unviersity Marching Band</a>
 		<div class="collapse navbar-collapse" id="navbar">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="#about">About</a>
+					<a class="nav-link" href="#history">History</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#tryouts">Tryouts</a>
+					<a class="nav-link" href="#people">People</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#instruments">Instruments</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#songs">Songs</a>
+					<a class="nav-link" href="#shows">Shows</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#infographic">Infographic</a>
+					<a class="nav-link" href="#about">About</a>
 				</li>
 			</ul>
 		</div>
@@ -41,7 +41,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12" align="center">
+			<div id="top" class="col-lg-12" align="center">
 				<span id="acronym">
 					<span class="T0 acro">T</span><span class="B0 acro">B</span><span class="D0 acro">D</span><span class="B1 acro">B</span><span class="I0 acro">I</span><span class="T1 acro">T</span><span class="L0 acro">L</span>
 				</span><br>
@@ -59,28 +59,39 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<h3><a id="about">About</a></h3><br>
+				<h2><a id="history">History</a></h2><br>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<h3><a id="tryouts">Tryouts</a></h3><br>
+				<h2><a id="people">People</a></h2><br>
+				<span class="stat stat2">228 </span> <span class="stat stat3">band members</span><br>
+				<span class="stat stat3">192 </span> <span class="stat stat4">march pre-game</span><br>
+				<span class="stat stat3" data-toggle="tooltip" data-html="true" title="<b>+3</b> from 1 Tenor Drums,<br>Bass Drums, and Cymbals">195 </span> <span class="stat stat4">march half-time</span><br>
+				<a class="stat stat2" data-toggle="tooltip" data-html="true" 
+					title="Head Director<br>Associate Director<br>Assistant Director<br>Director of School of Music<br>Associate Director of School of Music<br>Percussion Instructor<br><b>9+</b> Arrangers<br><b>4</b> Administrative Faculty<br><b>7</b> Supporting Faculty<br><b>6</b> Graduate Students<br><b>5+</b> Undergraduate Students">36+ </a> <span class="stat stat3">supporting staff</span>
+				<br><br><br>
 			</div>
 		</div>	
 		<div class="row">
 			<div class="col-xs-7">
-				<h3><a id="instruments">Instruments</a></h3>
+				<h2 style="padding-left: 15px"><a id="instruments">Instruments</a></h2>
 				<div id="instruments-pie"></div><br>
 			</div>
 			<div class="col-xs-5" align="center">
-				<h3>&nbsp;</h3>
+				<h2>&nbsp;</h2>
 				<div id="instruments-chart"></div><br>
 			</div>
 		</div>
 		<div class="row">
+			<div class="col-md-12">
+				<h2><a id="shows">Shows</a></h2><br>
+			</div>
+		</div>	
+		<div class="row">
 			<div class="col-md-12" align="center">
 				<div class="jumbotron">
-					<h1 class="display-3"><a id="infographic">About the Infographic</a></h1>
+					<h1 class="display-3"><a id="about">About the Infographic</a></h1>
 					<p class="lead">This infographic was developed and designed for <a href="https://eed.osu.edu/technical-communications/engr-2367">ENGR2367H</a> with Lynn Hall by:<br><span class="badge badge-default">Web Developer</span> Stephen Wu&nbsp;&nbsp;<span class="badge badge-default">Graphic Designer</span> Rui Lu&nbsp;&nbsp;<span class="badge badge-default">TBDBITL Member</span> Lauren Haack</p>
 					<hr class="my-4">
 					<p class="lead">
@@ -103,7 +114,7 @@
 	</div>
 
 	<script src="js/lib/jquery.min.js"></script>
-	<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 	<script src="js/lib/bootstrap.min.js"></script>
 	<script src="js/lib/d3.min.js"></script>
 	<script src="js/lib/d3.tip.js"></script>
@@ -125,7 +136,7 @@
 				return;
 			}
 			e.preventDefault();
-			var pos = $id.offset().top - 56;
+			var pos = $id.offset().top - 60; // padding-top is 55
 			$('body, html').animate({scrollTop: pos});
 		});
 	</script>
