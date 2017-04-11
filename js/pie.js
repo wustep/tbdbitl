@@ -38,15 +38,15 @@ svg.append("text").attr("id", "row-text").attr("text-anchor", "middle");
 var colorRange = d3.schemeCategory20;
 var color = d3.scaleOrdinal(colorRange);
 
-$.get( "data/instruments.csv", function( data ) {
+$.get( "data/instruments.csv", function( data ) { // TODO: Convert this to d3.csv instead of jQuery.csv
 	csv = jQuery.csv.toArrays(data);
 	getNextRow(dataset, dataset2, csv);
 });
 
-var tip = d3.tip().attr('class', 'd3-tip').html(function(d, i) { return "<span class=\"instrument-"+i+"\"></span>"+d.data.value + " " + (d.data.label)+" ("+Math.floor((d.data.value/totalInstruments)*100)+"%)"; });
+var tip = d3.tip().attr('class', 'd3-tip').html(function(d, i) { return "<span class=\"instrument instrument-"+i+"\"></span>"+d.data.value + " " + (d.data.label)+" ("+Math.floor((d.data.value/totalInstruments)*100)+"%)"; });
 
 var tip2 = d3.tip().attr('class', 'd3-tip').html(function(d) { 
-	return "<span class=\"instrument-"+d.instrument+"\"></span>" + d.row + " row: " + dataset[d.instrument]["label"];
+	return "<span class=\"instrument instrument-"+d.instrument+"\"></span>" + d.row + " row: " + dataset[d.instrument]["label"];
 }).offset([-10,0]);
 
 svg.call(tip);
@@ -57,7 +57,8 @@ function change(data, data2) {
 	/* ------- Circle graph ------ */
 	var circles = svg2.selectAll("circle")
 		.data(data2);
-	circles.enter().append("circle")
+	circles.enter()
+		.append("circle")
 		.style("stroke", function(d, i){ return d3.schemeCategory20[d.instrument] })
 		.style("fill", function(d, i){ return d3.schemeCategory20[d.instrument] })
 		.attr("r", 8)
@@ -243,7 +244,8 @@ function addToDataset(dataset, dataset2, label, value, row) { // Add/remove inst
 				 rowId = dataset2[dataset2.length-1]["rowId"] + 1;
 			 }
 		}
-		var colId = (dataset2.length > 0 && row == dataset2[dataset2.length-1]["row"]) ? (dataset2[dataset2.length-1]["colId"] + 1) : 0;
+		var colId = (dataset2.length > 0 && row == dataset2[dataset2.length-1]["row"]) ? 
+					(dataset2[dataset2.length-1]["colId"] + 1) : 0;
 		for (var j = 0; j < value; j++) {
 			dataset2.push({"instrument": instrumentId, "row": row, "rowId": rowId, "colId": colId});
 			colId++;
