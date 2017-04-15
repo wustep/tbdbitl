@@ -16,14 +16,21 @@ body {
 }
 .tooltipper {
 	display: inline-block;
-    border-bottom: 3px double #bb0000;
+    border-bottom: 4px double #bb0000;
 }
-
+.tooltip.tooltip-top, .tooltip.bs-tether-element-attached-bottom {
+	margin-top: 10px;
+}
 /* Statistics */
-.stat {
+.stat, .stat-alt {
 	font-family: "CapitaLig", "Open-Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: bold;
+}
+.stat {
 	color: #bb0000 !important;
+}
+.stat-alt {
+	color: #aa0000 !important;
 }
 .stat0, #acronym {
 	font-size: 128px;
@@ -51,7 +58,55 @@ body {
 	font-weight: bold;
 	text-decoration: underline;
 }
-/* Dynamic Donut Pie Chart */
+/* History */
+
+/* People */
+#genders {
+	vertical-align: center;
+	text-align: center;
+}
+#male {
+	background: url("../img/M.png");
+	width: 68px;
+	margin: 0 30px 0 0;
+}
+#female {
+	background: url("../img/F.png");
+	width: 44px;
+	background-repeat: no-repeat;
+	margin: 0 auto;
+}
+#male, #female {
+	background-size: contain;
+	height: 100px;
+	display: inline-block;
+}
+#engineering {
+	background: url("../img/engineering.png");
+}
+#music {
+	background: url("../img/music.png");	
+}
+#engineering, #music{
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+}
+#majors {
+	text-align: center;
+	vertical-align: center;
+	max-width: 250px;
+}
+.borderless td, .borderless th {
+    border: none;
+	padding: 0;
+}
+table.borderless {
+	margin: 0 auto;
+}
+/* Instruments - Dynamic Donut Pie Chart */
 #instruments-pie {
 	width: 660px;
 	height: 450px;
@@ -88,7 +143,7 @@ polyline {
     padding: 5px;
     text-align: center;
 }
-/* Dynamic Instruments Chart */
+/* Instruments - Dynamic Instruments Chart */
 #instruments-chart {
 	width: 460px;
 	height: 450px;

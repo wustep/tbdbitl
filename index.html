@@ -30,6 +30,9 @@
 					<a class="nav-link" href="#instruments">Instruments</a>
 				</li>
 				<li class="nav-item">
+					<a class="nav-link" href="#drow">D-Row</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link" href="#shows">Shows</a>
 				</li>
 				<li class="nav-item">
@@ -58,29 +61,50 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-1">
 				<h2><a id="history">History</a></h2><br>
+			</div>
+			<div class="col-md-11">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<h2><a id="people">People</a></h2><br>
+				<span class="stat stat2">228 </span> <span class="stat stat3">band members</span><br>
+				<span class="stat stat3">192 </span> <span class="stat stat4">march pre-game</span><br>
+				<div class="tooltipper" data-toggle="tooltip" data-html="true" title="<b>+3</b> from 1 Tenor Drums,<br>Bass Drums, and Cymbals"><span class="stat stat3" >195 </span> <span class="stat stat4">march half-time</span></div><br>
+				<div class="tooltipper" data-toggle="tooltip" data-html="true" 
+					title="Head Director<br>Associate Director<br>Assistant Director<br>Director of School of Music<br>Associate Director of School of Music<br>Percussion Instructor<br><b>9+</b> Arrangers<br><b>4</b> Administrative Faculty<br><b>7</b> Supporting Faculty<br><b>6</b> Graduate Students<br><b>5+</b> Undergraduate Students"><span class="stat stat2">36+ </span><span class="stat stat3">supporting staff</div></a>
+				<br><br><br>
+			</div>
+			<div class="col-md-4" align="center">
+				<div id="genders"><br><br>
+					<span id="male" data-toggle="tooltip" data-html="true" title="<b>159</b> males"></span><span id="female" data-toggle="tooltip" data-html="true" title="<b>69</b> females"></span><br>
+					<span class="stat-alt stat3">2.3 males : 1 female</span><br>
+				</div><br>
+				<div id="majors">
+					<table class="table borderless">
+					<tr><td><span id="engineering"></span></td><td><span class="stat-alt stat4">29% engineering majors</span></td></tr>
+					<tr><td><span id="music"></span></td><td><span class="stat-alt stat4">18% music majors</span></td></tr>
+					<tr><td></td><td><span class="stat-alt stat4">79 total majors</span></td></tr>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-4">
+			</div>
+		</div>	
+		<div class="row">
+			<div class="col-sm-7">
+				<h2><a id="instruments">Instruments</a></h2>
+				<div id="instruments-pie"></div><br>
+			</div>
+			<div class="col-sm-5" align="center"><br><br>
+				<div id="instruments-chart"></div><br>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<h2><a id="people">People</a></h2><br>
-				<span class="stat stat2">228 </span> <span class="stat stat3">band members</span><br>
-				<span class="stat stat3">192 </span> <span class="stat stat4">march pre-game</span><br>
-				<span class="stat stat3" data-toggle="tooltip" data-html="true" title="<b>+3</b> from 1 Tenor Drums,<br>Bass Drums, and Cymbals">195 </span> <span class="stat stat4">march half-time</span><br>
-				<a class="stat stat2" data-toggle="tooltip" data-html="true" 
-					title="Head Director<br>Associate Director<br>Assistant Director<br>Director of School of Music<br>Associate Director of School of Music<br>Percussion Instructor<br><b>9+</b> Arrangers<br><b>4</b> Administrative Faculty<br><b>7</b> Supporting Faculty<br><b>6</b> Graduate Students<br><b>5+</b> Undergraduate Students">36+ </a> <span class="stat stat3">supporting staff</span>
-				<br><br><br>
-			</div>
-		</div>	
-		<div class="row">
-			<div class="col-xs-7">
-				<h2 style="padding-left: 15px"><a id="instruments">Instruments</a></h2>
-				<div id="instruments-pie"></div><br>
-			</div>
-			<div class="col-xs-5" align="center">
-				<h2>&nbsp;</h2>
-				<div id="instruments-chart"></div><br>
+				<h2><a id="drow">D-Row</a></h2>
 			</div>
 		</div>
 		<div class="row">
@@ -100,12 +124,12 @@
 							<li class="list-group-item"><a href="https://tbdbitl.osu.edu/sites/tbdbitl.osu.edu/files/media-guide-2016-web.pdf">The Ohio State University Marching Band: Media and Performance Guide 2016</a></li>
 							<li class="list-group-item"><a href="https://www.tbdbitl.com/grandroster.php">TBDBITL Grand Roster - 1878 through 2016</a></li>
 							<li class="list-group-item"><a href="https://twitter.com/TBDBITL/status/768124246694334464">OSU Marching Band 2016 Majors</a></li>
+							<li class="list-group-item"><a href="https://tbdbitl.osu.edu/people/leonardi.19">Kevin Leonardi, Senior Director of Marketing & Communications</a></li>
+
 						</ul>
 					</p><p class="lead">
-						Assets:<br>
 						<ul class="list-group">
-							<li class="list-group-item">Instrument Icons by Rui Lu</li>
-							<li class="list-group-item"><a href="https://brand.osu.edu/">Ohio State Brand Guidelines</a></li>
+							<li class="list-group-item">Icons by Rui Lu</li>
 						</ul>
 					</p>
 				</div>
@@ -126,7 +150,7 @@
 		$(function () {
 			$('[data-toggle="tooltip"]').tooltip(); // Activate all tooltips
 		})
-		
+
 		// Smooth scroll for anchors: https://stackoverflow.com/questions/19012495/smooth-scroll-to-div-id-jquery
 		$(document).on('click', 'a[href^="#"]', function(e) {
 			console.log("Test");

@@ -181,7 +181,7 @@ function getNextRow(dataset, dataset2, csv) { // Get next band row of instrument
 		$('#row-text').fadeOut("fast", function(){
 			$("#row-text").html('');
 			d3.select("#row-text").append('tspan').attr('x',0).attr('dy',0).text(t);
-			d3.select("#row-text").append('tspan').attr('x',0).attr('dy',15).text(totalInstruments+" musicians");
+			d3.select("#row-text").append('tspan').attr('x',0).attr('dy',20).text(totalInstruments+" musicians");
 			$("#row-text").fadeIn("fast");
 		});
 	}
