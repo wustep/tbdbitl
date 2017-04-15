@@ -63,6 +63,8 @@
 		<div class="row">
 			<div class="col-md-1">
 				<h2><a id="history">History</a></h2><br>
+				<div id="band-guy"><div id="player" data-toggle="tooltip" data-placement="right" title="Buckeye Battle Cry"><a id="play"></a></div></div>
+				<audio loop id="music" src="music-p/0.mp3" type="audio/mp3"> </audio>
 			</div>
 			<div class="col-md-11">
 			</div>
@@ -125,7 +127,7 @@
 							<li class="list-group-item"><a href="https://www.tbdbitl.com/grandroster.php">TBDBITL Grand Roster - 1878 through 2016</a></li>
 							<li class="list-group-item"><a href="https://twitter.com/TBDBITL/status/768124246694334464">OSU Marching Band 2016 Majors</a></li>
 							<li class="list-group-item"><a href="https://tbdbitl.osu.edu/people/leonardi.19">Kevin Leonardi, Senior Director of Marketing & Communications</a></li>
-
+							<li class="list-group-item"><a href="https://brand.osu.edu/">Ohio State Brand Guidelines</a></li>
 						</ul>
 					</p><p class="lead">
 						<ul class="list-group">
@@ -148,7 +150,18 @@
 	
 	<script>
 		$(function () {
+			var playing = false;
+
 			$('[data-toggle="tooltip"]').tooltip(); // Activate all tooltips
+			$('#player').on("click", "#play", function() {
+				$("#play").attr('id', 'pause');
+				$('#music')[0].play();
+				playing = true;
+			}).on("click", "#pause", function() {
+				$("#pause").attr('id', 'play');
+				$('#music')[0].pause();
+				playing = false;
+			});
 		})
 
 		// Smooth scroll for anchors: https://stackoverflow.com/questions/19012495/smooth-scroll-to-div-id-jquery
