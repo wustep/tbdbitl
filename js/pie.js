@@ -1,7 +1,7 @@
 /* Data */
 
 var csv = [];
-var rowNum = 1; // Last row accessed. 0 is the column headers so we don't need to re-access that
+var rowNum = 0; 
 var dataset = []; // Data organized by instrument and count
 var dataset2 = []; // Data organized by instrumentId and rowNum
 var totalInstruments = 0;
@@ -41,9 +41,9 @@ svg.append("text").attr("id", "row-text").attr("text-anchor", "middle");
 var colorRange = d3.schemeCategory20;
 var color = d3.scaleOrdinal(colorRange);
 
-$.get( "data/instruments.csv", function( data ) { // TODO: Convert this to d3.csv instead of jQuery.csv
-	csv = jQuery.csv.toArrays(data);
-	getNextRow(dataset, dataset2, csv);
+d3.csv("./data/instruments.csv", function( data ) { // TODO: Convert this to d3.csv instead of jQuery.csv
+	csv = data;
+	getNextRow(dataset, dataset2, data);
 });
 
 var tip = d3.tip().attr('class', 'd3-tip').html(function(d, i) { return "<span class=\"instrument instrument-"+i+"\"></span>"+d.data.value + " " + (d.data.label)+" ("+Math.floor((d.data.value/totalInstruments)*100)+"%)"; });
@@ -165,12 +165,12 @@ $("body").keydown(function(e) {
 function getNextRow(dataset, dataset2, csv) { // Get next band row of instruments and add to dataset
 	var row = "";
 	if (rowNum < csv.length) {
-		row = csv[rowNum][0];
+		row = csv[rowNum]["row"];
 		while (rowNum < csv.length) {
-			if (csv[rowNum][0] != row) { // New row, end here.
+			if (csv[rowNum]["row"] != row) { // New row, end here.
 				break;
 			}
-			addToDataset(dataset, dataset2, csv[rowNum][1], csv[rowNum][2], csv[rowNum][0]);
+			addToDataset(dataset, dataset2, csv[rowNum]["label"], csv[rowNum]["value"], csv[rowNum]["row"]);
 			rowNum++;
 		}
 	}
@@ -191,13 +191,13 @@ function getNextRow(dataset, dataset2, csv) { // Get next band row of instrument
 function removeLastRow() {
 	if (rowNum >= 2 && rowNum <= csv.length) {
 		rowNum--;
-		var row = csv[rowNum][0];
+		var row = csv[rowNum]["row"];
 		while (rowNum >= 1) {
-			if (csv[rowNum][0] != row) { // New row, end here.
-				row = csv[rowNum][0];
+			if (csv[rowNum]["row"] != row) { // New row, end here.
+				row = csv[rowNum]["row"];
 				break;
 			}
-			addToDataset(dataset, dataset2, csv[rowNum][1], csv[rowNum][2] * -1, csv[rowNum][0]);
+			addToDataset(dataset, dataset2, csv[rowNum]["label"], csv[rowNum]["value"] * -1, csv[rowNum]["row"]);
 			rowNum--;
 		}
 		rowNum++;
