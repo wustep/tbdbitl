@@ -152,15 +152,23 @@ function change(data, data2) {
 	polyline.exit().remove();
 }
 
-/* Data manipulation functions */
+/* Triggers */
+$(".fa-arrow-right.instrument-arrow").on("click", function (e) {
+	getNextRow(dataset, dataset2, csv);
+});
+$(".fa-arrow-left.instrument-arrow").on("click", function (e) {
+	removeLastRow(dataset, dataset2, csv);
+});
 
 $("body").keydown(function(e) {
-	if (e.keyCode == 39) {
+	if (e.keyCode == 39) { // Right
 		getNextRow(dataset, dataset2, csv);
-	} else if (e.keyCode == 37) {
+	} else if (e.keyCode == 37) { // Left
 		removeLastRow(dataset, dataset2, csv);
 	}
 });
+
+/* Data manipulation functions */
 
 function getNextRow(dataset, dataset2, csv) { // Get next band row of instruments and add to dataset
 	var row = "";

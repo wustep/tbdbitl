@@ -185,6 +185,16 @@ polyline {
     padding: 5px;
     text-align: center;
 }
+.instrument-arrow { /* Prevent highlighting for arrow */
+    -webkit-user-select: none;
+    -moz-user-select: none; 
+    -khtml-user-select: none; 
+    -ms-user-select: none; 
+}
+.instrument-arrow:hover {
+	color: #bb0000;
+	cursor: pointer;
+}
 /* Instruments - Dynamic Instruments Chart */
 #instruments-chart {
 	width: 460px;
