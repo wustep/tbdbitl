@@ -3,7 +3,7 @@
 ## Assignment
 - Fix tooltips
 - Drum major / D-Row stats
-- Timeline
+
 ## Post-Assignment
 - Mobile scaling
 - Get permission for marching band icon and music

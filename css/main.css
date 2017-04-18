@@ -8,7 +8,11 @@ body {
 	font-family: "CapitaLig", "Open-Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: bold;
 }
-
+@media screen and (max-width: 600px) {
+	.navbar-brand {
+		font-size: 1.0rem;
+	}
+}
 /* Bootstrap Tooltips */
 .tooltip-inner {
 	text-align: left;
@@ -34,6 +38,23 @@ body {
 }
 .stat0, #acronym {
 	font-size: 128px;
+}
+@media screen and (max-width: 600px) {
+	.stat0, #acronym {
+		font-size: 64px;
+	}
+	.stat1 {
+		font-size: 48px;
+	}
+	.stat2, #expansion {
+		font-size: 32px;
+	}
+	.stat3 {
+		font-size: 18px;
+	}
+	.stat4 {
+		font-size: 12px;
+	}
 }
 .stat1 {
 	font-size: 64px;
@@ -115,7 +136,7 @@ body {
 	width: 6px;
 	margin: 0 auto;
 	padding-top: 50px;
-	background: #fff;
+	background: #CACACA;
 }
 
 .timeline ul li::after {
@@ -212,10 +233,10 @@ time {
 
 @media screen and (max-width: 600px) {
 	.timeline ul li {
-		margin-left: 20px;
+		margin-left: 5%;
 	}
 	.timeline ul li div {
-		width: calc(100vw - 91px);
+		width: 250px;
 	}
 	.timeline ul li:nth-child(even) div {
 		left: 45px;
@@ -227,6 +248,13 @@ time {
 	}
 }
 /* People */
+#members {
+	text-align: center;
+}
+#members-inner {
+	text-align: left; 
+	display: inline-block;
+}
 #genders {
 	vertical-align: center;
 	text-align: center;

@@ -8,8 +8,8 @@ var totalInstruments = 0;
 
 /* Adapted from animated donut chart with labels, legends and tooltips: http://bl.ocks.org/juan-cb/1984c7f2b446fffeedde */
 
-var width = 660,
-    height = 450,
+var width = $("#instruments-pie").width(),
+    height = $("#instruments-pie").height(),
 	radius = Math.min(width, height) / 2;
 
 var svg = d3.select("#instruments-pie").append("svg").append("g");
