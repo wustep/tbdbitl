@@ -9,3 +9,4 @@
 - Mobile scaling
 - Get permission for marching band icon and music
 - Swap play icon to font-awesome
+- Add next/prev button to video modals

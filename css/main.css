@@ -220,3 +220,10 @@ polyline {
 	text-align: center;
 	display: block;
 }
+/* Show Buttons and Modal */
+.show-btn {
+	margin: 3px;
+}
+#showModal .modal-content {
+	text-align: center;
+}

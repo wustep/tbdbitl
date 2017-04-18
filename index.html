@@ -30,9 +30,9 @@
 				<li class="nav-item">
 					<a class="nav-link" href="#instruments">Instruments</a>
 				</li>
-				<li class="nav-item">
+				<!--<li class="nav-item">
 					<a class="nav-link" href="#drow">D-Row</a>
-				</li>
+				</li>-->
 				<li class="nav-item">
 					<a class="nav-link" href="#shows">Shows</a>
 				</li>
@@ -105,14 +105,22 @@
 				<div id="instruments-chart"></div><br>
 			</div>
 		</div>
-		<div class="row">
+		<!--<div class="row">
 			<div class="col-md-12">
 				<h2><a id="drow">D-Row</a></h2>
 			</div>
-		</div>
+		</div>-->
 		<div class="row">
 			<div class="col-md-12">
-				<h2><a id="shows">Shows</a></h2><br>
+				<h2><a id="shows">Recent Shows</a></h2><br>
+				<div align="center">
+					<button type="button" class="btn btn-outline-primary show-btn" data-toggle="modal" data-target="#showModal" data-yt="rNzOVxHhjmQ">Superheroes (2016)</button> 
+					<button type="button" class="btn btn-outline-primary show-btn" data-toggle="modal" data-target="#showModal" data-yt="ffJww8Yplkw">Broadway (2016)</button> 
+					<button type="button" class="btn btn-outline-primary show-btn" data-toggle="modal" data-target="#showModal" data-yt="2ew4GCSOn1k">Back to the Future (2015)</button> 
+					<button type="button" class="btn btn-outline-primary show-btn" data-toggle="modal" data-target="#showModal" data-yt="GxhWyaD_SUQ">Hollywood Blockbusters (2013)</button> 
+					<button type="button" class="btn btn-outline-primary show-btn" data-toggle="modal" data-target="#showModal" data-yt="GTca2nrIn4U">Michael Jackson (2013)</button> 
+					<button type="button" class="btn btn-outline-primary show-btn" data-toggle="modal" data-target="#showModal" data-yt="rNzOVxHhjmQ">Video Games (2012)</button>
+				</div><br><br>
 			</div>
 		</div>	
 		<div class="row">
@@ -140,6 +148,23 @@
 		</div>
 	</div>
 
+	<div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="showModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="showModalLabel">Show</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				</button>
+				</div>	
+				<div class="modal-body">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<script src="js/lib/jquery.min.js"></script>
 	<script src="js/lib/tether.min.js"></script>
 	<script src="js/lib/bootstrap.min.js"></script>
@@ -150,8 +175,7 @@
 	
 	<script>
 		$(function () {
-			var playing = false;
-
+			var playing = false; // Music playing
 			$('[data-toggle="tooltip"]').tooltip(); // Activate all tooltips
 			$('#player').on("click", "#play", function() {
 				$("#play").attr('id', 'pause');
@@ -162,7 +186,29 @@
 				$('#music')[0].pause();
 				playing = false;
 			});
+
+			preload("img/instruments/0.png", "img/instruments/1.png", "img/instruments/2.png", "img/instruments/3.png", "img/instruments/4.png", "img/instruments/5.png", "img/instruments/6.png", "img/instruments/7.png", "img/instruments/8.png", "img/instruments/9.png", "img/instruments/10.png"); // Preload instruments
 		})
+		
+		var images = [];
+		function preload() { // Preload images from https://stackoverflow.com/questions/3646036/javascript-preloading-images
+			for (var i = 0; i < arguments.length; i++) {
+				images[i] = new Image();
+				images[i].src = preload.arguments[i];
+			}
+		}
+		 
+		$('#showModal').on('hidden.bs.modal', function () { // End video on exit
+			$('#showModal .modal-body').html('');
+		});
+		$('#showModal').on('show.bs.modal', function (e) { // Adjust width and post iframe: https://gist.github.com/jawinn/6655039
+			var modalBody = $(this).find('.modal-body');
+			var videoId = $(e.relatedTarget).attr("data-yt");
+			var modalTitle = $(e.relatedTarget).html();
+			$(this).find('.modal-title').html(modalTitle);
+			var iFrameCode = '<iframe width="640" height="360" scrolling="no" allowtransparency="true" allowfullscreen="true" src="http://www.youtube.com/embed/'+ videoId +'?rel=0&wmode=transparent&autoplay=1&showinfo=0" frameborder="0"></iframe><br><br><p>Video Courtesy of <a href="https://www.youtube.com/channel/UCCyxQx_LAmLfY9gokoMNtMg" target="_blank">The Lantern</a></p>';
+			$(this).find('.modal-body').html(iFrameCode);
+		});
 
 		// Smooth scroll for anchors: https://stackoverflow.com/questions/19012495/smooth-scroll-to-div-id-jquery
 		$(document).on('click', 'a[href^="#"]', function(e) {

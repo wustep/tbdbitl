@@ -197,10 +197,10 @@ function getNextRow(dataset, dataset2, csv) { // Get next band row of instrument
 }
 
 function removeLastRow() {
-	if (rowNum >= 2 && rowNum <= csv.length) {
+	if (rowNum >= 1 && rowNum <= csv.length) {
 		rowNum--;
 		var row = csv[rowNum]["row"];
-		while (rowNum >= 1) {
+		while (rowNum >= 0) {
 			if (csv[rowNum]["row"] != row) { // New row, end here.
 				row = csv[rowNum]["row"];
 				break;
