@@ -45,7 +45,11 @@
 
 	<div class="container">
 		<div class="row">
-			<div id="top" class="col-lg-12" align="center">
+			<div class="col-lg-1" align="center">
+				<div id="band-guy"><div id="player" data-toggle="tooltip" data-placement="right" title="Buckeye Battle Cry"><a id="play"></a></div></div>
+				<audio loop id="music" src="music-p/0.mp3" type="audio/mp3"> </audio>
+			</div>
+			<div id="top" class="col-lg-11" align="center">
 				<span id="acronym">
 					<span class="T0 acro">T</span><span class="B0 acro">B</span><span class="D0 acro">D</span><span class="B1 acro">B</span><span class="I0 acro">I</span><span class="T1 acro">T</span><span class="L0 acro">L</span>
 				</span><br>
@@ -64,10 +68,38 @@
 		<div class="row">
 			<div class="col-md-1">
 				<h2><a id="history">History</a></h2><br>
-				<div id="band-guy"><div id="player" data-toggle="tooltip" data-placement="right" title="Buckeye Battle Cry"><a id="play"></a></div></div>
-				<audio loop id="music" src="music-p/0.mp3" type="audio/mp3"> </audio>
 			</div>
-			<div class="col-md-11">
+			<div class="col-md-10">
+				<section class="timeline">
+					<ul><li><div>
+						<time>1878</time>
+						Band Founded as "Fife and Drum Corp"
+					</div></li>
+					<li><div>
+						<time>1928</time>
+						Ramp entrance introduced during pregame entrance on North side of the field
+					</div></li>
+					<li><div>
+						<time>1936</time>
+						Script Ohio first performed
+					</div></li>
+					<li><div>
+						<time>1965</time>
+						<i>Hang on Sloopy</i> first performed
+					</div></li>
+					<li><div>
+						<time>1968</time>
+						TBDBITL acronym given to band by Woody Hayes
+					</div></li>
+					<li><div>
+						<time>1973</time>
+						First 5 women allowed into band
+					</div></li>
+					<li><div>
+						<time>Present</time>
+						Over 7000 members on TBDBITL Grand Roster and 4000 living alumni
+					</div></li>
+				</section><br><br><br>
 			</div>
 		</div>
 		<div class="row">
@@ -178,21 +210,28 @@
 	<script src="js/pie.js"></script>
 	
 	<script>
+		var playing = false; // Music playing
 		$(function () {
-			var playing = false; // Music playing
 			$('[data-toggle="tooltip"]').tooltip(); // Activate all tooltips
 			$('#player').on("click", "#play", function() {
-				$("#play").attr('id', 'pause');
-				$('#music')[0].play();
-				playing = true;
+				playMusic();
 			}).on("click", "#pause", function() {
-				$("#pause").attr('id', 'play');
-				$('#music')[0].pause();
-				playing = false;
+				pauseMusic();
 			});
 
 			preload("img/instruments/0.png", "img/instruments/1.png", "img/instruments/2.png", "img/instruments/3.png", "img/instruments/4.png", "img/instruments/5.png", "img/instruments/6.png", "img/instruments/7.png", "img/instruments/8.png", "img/instruments/9.png", "img/instruments/10.png"); // Preload instruments
-		})
+		});
+		
+		function playMusic() {
+			$("#play").attr('id', 'pause');
+			$('#music')[0].play();
+			playing = true;	
+		}
+		function pauseMusic() {
+			$("#pause").attr('id', 'play');
+			$('#music')[0].pause();
+			playing = false;
+		}
 		
 		var images = [];
 		function preload() { // Preload images from https://stackoverflow.com/questions/3646036/javascript-preloading-images
@@ -201,11 +240,35 @@
 				images[i].src = preload.arguments[i];
 			}
 		}
-		 
+		
+		/* Vertical Timeline */
+		var items = document.querySelectorAll(".timeline li");
+		function isElementInViewport(el) {
+			var rect = el.getBoundingClientRect();
+			return (
+				rect.top >= 0 &&
+				rect.left >= 0 &&
+				rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+				rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+			);
+		}
+		function callbackFunc() {
+			for (var i = 0; i < items.length; i++) {
+				if (isElementInViewport(items[i])) {
+					items[i].classList.add("in-view");
+				}
+			}
+		}
+		window.addEventListener("load", callbackFunc);
+		window.addEventListener("resize", callbackFunc);
+		window.addEventListener("scroll", callbackFunc);
+		
+		/* Dynamic modal for shows list */ 
 		$('#showModal').on('hidden.bs.modal', function () { // End video on exit
 			$('#showModal .modal-body').html('');
 		});
 		$('#showModal').on('show.bs.modal', function (e) { // Adjust width and post iframe: https://gist.github.com/jawinn/6655039
+			pauseMusic();
 			var modalBody = $(this).find('.modal-body');
 			var videoId = $(e.relatedTarget).attr("data-yt");
 			var modalTitle = $(e.relatedTarget).html();
