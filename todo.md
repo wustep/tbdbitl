@@ -1,9 +1,8 @@
 # TODO
 
 ## Assignment
-- Bar chart with years
+- Fix tooltips
 - Drum major / D-Row stats
-- Recent Shows + YouTube embeds
 - Timeline
 ## Post-Assignment
 - Mobile scaling

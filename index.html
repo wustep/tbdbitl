@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="icon" href="img/favicon.ico">
@@ -73,7 +73,7 @@
 				<section class="timeline">
 					<ul><li><div>
 						<time>1878</time>
-						Band Founded as "Fife and Drum Corp"
+						Band Founded as "Fife and Drum Corp" sponsored by the Military Department
 					</div></li>
 					<li><div>
 						<time>1928</time>
@@ -103,7 +103,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-lg-4 col-md-6">
 				<h2><a id="people">People</a></h2><br>
 				<span class="stat stat2">228 </span> <span class="stat stat3">band members</span><br>
 				<span class="stat stat3">192 </span> <span class="stat stat4">march pre-game</span><br>
@@ -112,7 +112,7 @@
 					title="Head Director<br>Associate Director<br>Assistant Director<br>Director of School of Music<br>Associate Director of School of Music<br>Percussion Instructor<br><b>9+</b> Arrangers<br><b>4</b> Administrative Faculty<br><b>7</b> Supporting Faculty<br><b>6</b> Graduate Students<br><b>5+</b> Undergraduate Students"><span class="stat stat2">36+ </span><span class="stat stat3">supporting staff</div></a>
 				<br><br><br><br>
 			</div>
-			<div class="col-md-4" align="center">
+			<div class="col-lg-4 col-md-6" align="center">
 				<div id="genders"><br><br>
 					<span id="male" data-toggle="tooltip" data-html="true" title="<b>159</b> males"></span><span id="female" data-toggle="tooltip" data-html="true" title="<b>69</b> females"></span><br>
 					<span class="stat-alt stat3">2.3 males : 1 female</span><br>
@@ -122,19 +122,26 @@
 					<tr><td><span id="engineering"></span></td><td><span class="stat-alt stat4">29% engineering majors</span></td></tr>
 					<tr><td><span id="music"></span></td><td><span class="stat-alt stat4">18% music majors</span></td></tr>
 					<tr><td></td><td><span class="stat-alt stat4">79 total majors</span></td></tr>
-					</table>
+					</table><br>
 				</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-lg-4 col-md-12">
 				<div id="years-chart"></div>
 			</div>
 		</div>	
 		<div class="row">
-			<div class="col-sm-7">
-				<h2><a id="instruments">Instruments</a> <i class="fa fa-arrow-left instrument-arrow" aria-hidden="true"></i> <i class="fa fa-arrow-right instrument-arrow" aria-hidden="true"></i></h2>
+			<div class="col-md-4">
+				<h2><a id="instruments">Instruments</a> <i class="fa fa-arrow-left instrument-arrow" aria-hidden="true"></i> <i class="fa fa-arrow-right instrument-arrow" aria-hidden="true"></i></h2><br>
+			</div>
+			<div class="col-md-8">
+				<p>Click the left and right arrows to navigate through the Rows of the Band. The dots represent one band member and their instrument. Mouse over or tap the pie slice or dot to see the instrument!</p><br>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-7">
 				<div id="instruments-pie"></div><br>
 			</div>
-			<div class="col-sm-5" align="center"><br><br>
+			<div class="col-xs-5" align="center">
 				<div id="instruments-chart"></div><br>
 			</div>
 		</div>
@@ -147,7 +154,7 @@
 			<div class="col-md-12">
 				<h2><a id="shows">Recent Shows</a></h2><br>
 				<div align="center">
-					<button type="button" class="btn btn-outline-primary show-btn" data-toggle="modal" data-target="#showModal" data-yt="rNzOVxHhjmQ">Superheroes (2016)</button> 
+					<button type="button" class="btn btn-outline-primary show-btn" data-toggle="modal" data-target="#showModal" data-yt="s1AePL8Flrk">Superheroes (2016)</button> 
 					<button type="button" class="btn btn-outline-primary show-btn" data-toggle="modal" data-target="#showModal" data-yt="ffJww8Yplkw">Broadway (2016)</button> 
 					<button type="button" class="btn btn-outline-primary show-btn" data-toggle="modal" data-target="#showModal" data-yt="2ew4GCSOn1k">Back to the Future (2015)</button> 
 					<button type="button" class="btn btn-outline-primary show-btn" data-toggle="modal" data-target="#showModal" data-yt="GxhWyaD_SUQ">Hollywood Blockbusters (2013)</button> 
@@ -241,7 +248,7 @@
 			}
 		}
 		
-		/* Vertical Timeline */
+		/* Vertical Timeline from https://webdesign.tutsplus.com/tutorials/building-a-vertical-timeline-with-css-and-a-touch-of-javascript--cms-26528 */
 		var items = document.querySelectorAll(".timeline li");
 		function isElementInViewport(el) {
 			var rect = el.getBoundingClientRect();
