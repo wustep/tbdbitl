@@ -99,7 +99,7 @@
 						<time>Present</time>
 						Over 7000 members on TBDBITL Grand Roster and 4000 living alumni
 					</div></li>
-				</section><br><br><br>
+				</section><br><br><br><br>
 			</div>
 		</div>
 		<div class="row">
@@ -130,7 +130,7 @@
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-12" align="center">
-				<div id="years-chart"></div>
+				<div id="years-chart"></div><br><br>
 			</div>
 		</div>	
 		<div class="row">
@@ -139,7 +139,7 @@
 			</div>
 			<div class="col-md-8">
 				<p>Click the left and right arrows to navigate through the Rows of the Band. The dots represent one band member and their instrument. Mouse over or tap the pie slice or dot to see the instrument!</p><br>
-			</div>
+			</div><br>
 		</div>
 		<div class="row">
 			<div class="col-xl-7 col-xs-12" align="center">
@@ -147,7 +147,7 @@
 			</div><br>
 			<div class="col-xl-5 col-xs-12" align="center">
 				<div id="instruments-chart"></div><br>
-			</div><br>
+			</div><br><br>
 		</div>
 		<!--<div class="row">
 			<div class="col-md-12">
@@ -284,7 +284,7 @@
 			var videoId = $(e.relatedTarget).attr("data-yt");
 			var modalTitle = $(e.relatedTarget).html();
 			$(this).find('.modal-title').html(modalTitle);
-			var iFrameCode = '<iframe width="640" height="360" scrolling="no" allowtransparency="true" allowfullscreen="true" src="http://www.youtube.com/embed/'+ videoId +'?rel=0&wmode=transparent&autoplay=1&showinfo=0" frameborder="0"></iframe><br><br><p>Video Courtesy of <a href="https://www.youtube.com/user/OSUBuckeyeTV/" target="_blank">The Lantern</a></p>';
+			var iFrameCode = '<iframe width="640" height="360" scrolling="no" allowtransparency="true" allowfullscreen="true" src="http://www.youtube.com/embed/'+ videoId +'?rel=0&wmode=transparent&autoplay=1&showinfo=0&iv_load_policy=3" frameborder="0"></iframe><br><br><p>Video Courtesy of <a href="https://www.youtube.com/user/OSUBuckeyeTV/" target="_blank">The Lantern</a></p>';
 			$(this).find('.modal-body').html(iFrameCode);
 		});
 
