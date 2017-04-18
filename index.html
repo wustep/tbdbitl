@@ -78,7 +78,7 @@
 				<div class="tooltipper" data-toggle="tooltip" data-html="true" title="<b>+3</b> from 1 Tenor Drums,<br>Bass Drums, and Cymbals"><span class="stat stat3" >195 </span> <span class="stat stat4">march half-time</span></div><br>
 				<div class="tooltipper" data-toggle="tooltip" data-html="true" 
 					title="Head Director<br>Associate Director<br>Assistant Director<br>Director of School of Music<br>Associate Director of School of Music<br>Percussion Instructor<br><b>9+</b> Arrangers<br><b>4</b> Administrative Faculty<br><b>7</b> Supporting Faculty<br><b>6</b> Graduate Students<br><b>5+</b> Undergraduate Students"><span class="stat stat2">36+ </span><span class="stat stat3">supporting staff</div></a>
-				<br><br><br>
+				<br><br><br><br>
 			</div>
 			<div class="col-md-4" align="center">
 				<div id="genders"><br><br>
@@ -94,6 +94,7 @@
 				</div>
 			</div>
 			<div class="col-md-4">
+				<div id="years-chart"></div>
 			</div>
 		</div>	
 		<div class="row">
@@ -137,6 +138,8 @@
 							<li class="list-group-item"><a href="https://twitter.com/TBDBITL/status/768124246694334464">OSU Marching Band 2016 Majors</a></li>
 							<li class="list-group-item"><a href="https://tbdbitl.osu.edu/people/leonardi.19">Kevin Leonardi, Senior Director of Marketing & Communications</a></li>
 							<li class="list-group-item"><a href="https://brand.osu.edu/">Ohio State Brand Guidelines</a></li>
+							<li class="list-group-item"><a href="https://www.youtube.com/channel/UCCyxQx_LAmLfY9gokoMNtMg">YouTube: Lantern OSU</a></li>
+							<li class="list-group-item"><a href="https://www.youtube.com/user/OSUBuckeyeTV">YouTube: Lantern TV</a></li>
 						</ul>
 					</p><p class="lead">
 						<ul class="list-group">
@@ -171,6 +174,7 @@
 	<script src="js/lib/d3.min.js"></script>
 	<script src="js/lib/d3.tip.js"></script>
 	<script src="js/acronym.js"></script>
+	<script src="js/bar.js"></script>
 	<script src="js/pie.js"></script>
 	
 	<script>
@@ -206,7 +210,7 @@
 			var videoId = $(e.relatedTarget).attr("data-yt");
 			var modalTitle = $(e.relatedTarget).html();
 			$(this).find('.modal-title').html(modalTitle);
-			var iFrameCode = '<iframe width="640" height="360" scrolling="no" allowtransparency="true" allowfullscreen="true" src="http://www.youtube.com/embed/'+ videoId +'?rel=0&wmode=transparent&autoplay=1&showinfo=0" frameborder="0"></iframe><br><br><p>Video Courtesy of <a href="https://www.youtube.com/channel/UCCyxQx_LAmLfY9gokoMNtMg" target="_blank">The Lantern</a></p>';
+			var iFrameCode = '<iframe width="640" height="360" scrolling="no" allowtransparency="true" allowfullscreen="true" src="http://www.youtube.com/embed/'+ videoId +'?rel=0&wmode=transparent&autoplay=1&showinfo=0" frameborder="0"></iframe><br><br><p>Video Courtesy of <a href="https://www.youtube.com/user/OSUBuckeyeTV/" target="_blank">The Lantern</a></p>';
 			$(this).find('.modal-body').html(iFrameCode);
 		});
 

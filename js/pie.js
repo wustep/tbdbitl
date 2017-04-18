@@ -41,7 +41,7 @@ svg.append("text").attr("id", "row-text").attr("text-anchor", "middle");
 var colorRange = d3.schemeCategory20;
 var color = d3.scaleOrdinal(colorRange);
 
-d3.csv("./data/instruments.csv", function( data ) { // TODO: Convert this to d3.csv instead of jQuery.csv
+d3.csv("./data/instruments.csv", function( data ) {
 	csv = data;
 	getNextRow(dataset, dataset2, data);
 });

@@ -30,7 +30,7 @@ body {
 	color: #bb0000 !important;
 }
 .stat-alt {
-	color: #aa0000 !important;
+	color: #666666 !important;
 }
 .stat0, #acronym {
 	font-size: 128px;
@@ -84,7 +84,7 @@ body {
     height: 30px;
 	margin: 5px 8px;
     border-top: 15px solid transparent;
-    border-left: 24px solid #aa0000;
+    border-left: 24px solid #bb0000;
     border-bottom: 15px solid transparent;
 }
 #play:hover {
@@ -95,8 +95,8 @@ body {
     width: 21px;
     height: 30px;
 	margin: 5px 8px;
-    border-right: 8px solid #aa0000;
-    border-left: 8px solid #aa0000;
+    border-right: 8px solid #bb0000;
+    border-left: 8px solid #bb0000;
 }
 #pause:hover {
     border-right: 9px solid #666666;
@@ -147,6 +147,16 @@ body {
 }
 table.borderless {
 	margin: 0 auto;
+}
+#years-chart {
+	width: 400px;
+	height: 350px;
+}
+.bar > rect {
+	fill: #bb0000;
+}
+.bar > .value {
+	fill: white;
 }
 /* Instruments - Dynamic Donut Pie Chart */
 #instruments-pie {
@@ -223,6 +233,9 @@ polyline {
 /* Show Buttons and Modal */
 .show-btn {
 	margin: 3px;
+}
+.show-btn:hover {
+	cursor: pointer;
 }
 #showModal .modal-content {
 	text-align: center;
