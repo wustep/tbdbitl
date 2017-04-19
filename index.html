@@ -45,11 +45,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-1" align="center">
-				<div id="band-guy"><div id="player" data-toggle="tooltip" data-animation="false" data-placement="right" title="Buckeye Battle Cry"><a id="play"></a></div></div>
-				<audio loop id="music" src="music-p/0.mp3" type="audio/mp3"> </audio>
-			</div>
-			<div id="top" class="col-lg-11" align="center">
+			<div id="top" class="col-md-8 push-md-2 col-sm-12" align="center">
 				<span id="acronym">
 					<span class="T0 acro">T</span><span class="B0 acro">B</span><span class="D0 acro">D</span><span class="B1 acro">B</span><span class="I0 acro">I</span><span class="T1 acro">T</span><span class="L0 acro">L</span>
 				</span><br>
@@ -64,6 +60,13 @@
 				</span><hr>
 				<br>
 			</div>
+			<div class="col-md-2 pull-md-8 col-sm-6" align="center">
+				<div id="band-guy"><div id="player" data-toggle="tooltip" data-animation="false" data-placement="right" title="Buckeye Battle Cry"><a id="play"></a></div></div>
+				<audio loop id="music" src="music-p/0.mp3" type="audio/mp3"> </audio>
+			</div>
+			<div class="col-md-2 col-sm-6" align="center">
+				<div id="drum-major"></div><br><br>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-1">
@@ -73,31 +76,31 @@
 				<section class="timeline">
 					<ul><li><div>
 						<time>1878</time>
-						Band Founded as "Fife and Drum Corp" sponsored by the Military Department
+						<b>Founded</b> as fife and drum corps, the band was sponsored by the Military Department to provide music for ROTC cadet marches. 
 					</div></li>
 					<li><div>
 						<time>1928</time>
-						Ramp entrance introduced during pregame entrance on North side of the field
+						<b>"Ramp Entrance"</b> introduced as pregame tradition where every row of the band files out from the North Tunnel of the Ohio Stadium, marching to "Buckeye Battle Cry."
 					</div></li>
 					<li><div>
 						<time>1936</time>
-						Script Ohio first performed
+						<b>Script Ohio</b> first performed. A different fourth or fifth year sousaphone player or the occasional honorary Ohio State member is chosen to dot the "i" of "Ohio."
 					</div></li>
 					<li><div>
 						<time>1965</time>
-						<i>Hang on Sloopy</i> first performed
+						<b>"Hang on Sloopy"</b> first performed
 					</div></li>
 					<li><div>
 						<time>1968</time>
-						TBDBITL acronym given to band by Woody Hayes
+						<b>TBDBITL</b> acronym given to band by Woody Hayes
 					</div></li>
 					<li><div>
 						<time>1973</time>
-						First 5 women allowed into band
+						After Title IX, women were finally allowed to try out for the band. Following tryouts, the <b>first 5 women</b> were selected to be band members. 
 					</div></li>
 					<li><div>
 						<time>Present</time>
-						Over 7000 members on TBDBITL Grand Roster and 4000 living alumni
+						<b>Over 7000 members</b> on TBDBITL Grand Roster and 4000 living alumni
 					</div></li>
 				</section><br><br><br><br>
 			</div>
@@ -139,7 +142,7 @@
 			</div>
 			<div class="col-md-8">
 				<p>Click the left and right arrows to navigate through the Rows of the Band. The dots represent one band member and their instrument. Mouse over or tap the pie slice or dot to see the instrument!</p><br>
-			</div><br>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-xl-7 col-xs-12" align="center">
@@ -177,9 +180,11 @@
 						Sources:<br>
 						<ul class="list-group">
 							<li class="list-group-item"><a href="https://tbdbitl.osu.edu/sites/tbdbitl.osu.edu/files/media-guide-2016-web.pdf">The Ohio State University Marching Band: Media and Performance Guide 2016</a></li>
+							<li class="list-group-item"><a href="https://tbdbitl.osu.edu/people/leonardi.19">Kevin Leonardi,
+							Senior Director of Marketing & Communications</a></li>
 							<li class="list-group-item"><a href="https://www.tbdbitl.com/grandroster.php">TBDBITL Grand Roster - 1878 through 2016</a></li>
 							<li class="list-group-item"><a href="https://twitter.com/TBDBITL/status/768124246694334464">OSU Marching Band 2016 Majors</a></li>
-							<li class="list-group-item"><a href="https://tbdbitl.osu.edu/people/leonardi.19">Kevin Leonardi, Senior Director of Marketing & Communications</a></li>
+							<li class="list-group-item"><a href="https://tbdbitl.osu.edu/marching-band/traditions">Traditions: The Ohio State Marching and Athletic Bands</a></li>
 							<li class="list-group-item"><a href="https://brand.osu.edu/">Ohio State Brand Guidelines</a></li>
 							<li class="list-group-item"><a href="https://www.youtube.com/channel/UCCyxQx_LAmLfY9gokoMNtMg">YouTube: Lantern OSU</a></li>
 							<li class="list-group-item"><a href="https://www.youtube.com/user/OSUBuckeyeTV">YouTube: Lantern TV</a></li>
@@ -284,7 +289,7 @@
 			var videoId = $(e.relatedTarget).attr("data-yt");
 			var modalTitle = $(e.relatedTarget).html();
 			$(this).find('.modal-title').html(modalTitle);
-			var iFrameCode = '<iframe width="640" height="360" scrolling="no" allowtransparency="true" allowfullscreen="true" src="http://www.youtube.com/embed/'+ videoId +'?rel=0&wmode=transparent&autoplay=1&showinfo=0&iv_load_policy=3" frameborder="0"></iframe><br><br><p>Video Courtesy of <a href="https://www.youtube.com/user/OSUBuckeyeTV/" target="_blank">The Lantern</a></p>';
+			var iFrameCode = '<iframe width="640" height="360" scrolling="no" allowtransparency="true" allowfullscreen="true" src="http://www.youtube.com/embed/'+ videoId +'?rel=0&wmode=transparent&autoplay=1&showinfo=0&iv_load_policy=3" frameborder="0"></iframe><br><br><p>Video Courtesy of <a href="https://www.youtube.com/user/OSUBuckeyeTV/" target="_blank">Lantern TV</a></p>';
 			$(this).find('.modal-body').html(iFrameCode);
 		});
 

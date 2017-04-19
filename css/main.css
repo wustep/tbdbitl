@@ -13,6 +13,10 @@ body {
 		font-size: 1.0rem;
 	}
 }
+b { /* Fix for fonts not appearing as bold */
+	font-weight: bolder;
+	font-weight: bold;
+}
 /* Bootstrap Tooltips */
 .tooltip-inner {
 	text-align: left;
@@ -37,33 +41,16 @@ body {
 	color: #666666 !important;
 }
 .stat0, #acronym {
-	font-size: 128px;
-}
-@media screen and (max-width: 600px) {
-	.stat0, #acronym {
-		font-size: 64px;
-	}
-	.stat1 {
-		font-size: 48px;
-	}
-	.stat2, #expansion {
-		font-size: 32px;
-	}
-	.stat3 {
-		font-size: 18px;
-	}
-	.stat4 {
-		font-size: 12px;
-	}
+	font-size: 100px;
 }
 .stat1 {
 	font-size: 64px;
 }
 .stat2, #expansion {
-	font-size: 48px;
+	font-size: 42px;
 }
 .stat3 {
-	font-size: 32px;
+	font-size: 30px;
 }
 .stat4 {
 	font-size: 18px;
@@ -71,6 +58,17 @@ body {
 #acronym, #expansion {
 	font-family: 'CapitaLig'; 
 	color: #bb0000;
+}
+@media screen and (max-width: 992px) {
+	.stat0, #acronym {
+		font-size: 84px;
+	}
+	.stat1 {
+		font-size: 64px;
+	}
+	.stat2, #expansion {
+		font-size: 36px;
+	}
 }
 .acro, .stat {
 	cursor: default;
@@ -81,18 +79,24 @@ body {
 }
 /* History */
 #band-guy {
-	margin-top: 53px;
 	background: url("../img-p/band-guy.png");
+	width: 100px;
+}
+#drum-major {
+	background: url("../img/drum-major.png");
+	width: 86px;
+}
+#band-guy, #drum-major {
+	margin-top: 53px;
 	background-size: contain;
 	background-repeat: no-repeat;
 	height: 200px;
-	width: 65px;
 	display: inline-block;
 }
 #player {
 	position: absolute;
-	margin-top: 52px;
-	margin-left: 15px;
+	margin-top: 73px;
+	margin-left: 23px;
 	width: 38px;
 	height: 40px;
 	background-color: white;
