@@ -107,39 +107,48 @@ b { /* Fix for fonts not appearing as bold */
 	margin: 3px;
 	text-align: center;
 }
-#player {
+#player-0, #player-1 {
 	position: absolute;
-	margin-top: 73px;
-	margin-left: 23px;
 	width: 38px;
 	height: 40px;
+	margin-top: 73px;
 	background-color: white;
 	border-radius: 100%;
 	border: 1px solid black;
 	cursor: pointer;
 }
-#play, #pause {
-	position: absolute;
-	margin-left: -10px;
-	margin-top: 4px;
+#player-0 {
+	margin-left: 23px;
 }
-#play {
+#player-1 {
+	margin-left: 32px;
+}
+.play, .pause {
+	position: absolute;
+	margin-left: -10.5px;
+	margin-top: 4px;
+	-webkit-user-select: none;
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-ms-user-select: none; 
+}
+.play {
 	width: 22px;
 	height: 30px;
 	border-top: 15px solid transparent;
 	border-left: 24px solid #bb0000;
 	border-bottom: 15px solid transparent;
 }
-#play:hover {
+.play:hover {
 	border-left: 25px solid #666666;
 }
-#pause {
+.pause {
 	width: 21px;
 	height: 30px;
 	border-right: 8px solid #bb0000;
 	border-left: 8px solid #bb0000;
 }
-#pause:hover {
+.pause:hover {
 	border-right: 9px solid #666666;
 	border-left: 9px solid #666666;
 }
@@ -366,10 +375,10 @@ polyline {
 	text-align: center;
 }
 .instrument-arrow { /* Prevent highlighting for arrow */
-		-webkit-user-select: none;
-		-moz-user-select: none; 
-		-khtml-user-select: none; 
-		-ms-user-select: none; 
+	-webkit-user-select: none;
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-ms-user-select: none; 
 }
 .instrument-arrow:hover {
 	color: #bb0000;

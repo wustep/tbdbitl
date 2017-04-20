@@ -60,11 +60,12 @@
 				</span><hr>
 			</div>
 			<div class="col-md-2 pull-md-8 col-6" align="center">
-				<div id="band-guy"><div id="player" data-toggle="tooltip" data-animation="false" data-placement="right" title="Buckeye Battle Cry"><a id="play"></a></div></div>
-				<audio loop id="music" src="music-p/0.mp3" type="audio/mp3"> </audio>
+				<div id="band-guy"><div id="player-0" data-toggle="tooltip" data-animation="false" data-placement="right" title="Buckeye Battle Cry"><a class="play"></a></div></div>
+				<audio loop class="music" src="music-p/Buckeye Battle Cry.mp3" type="audio/mp3"> </audio>
 			</div>
 			<div class="col-md-2 col-6" align="center">
-				<div id="drum-major"></div><br><br><br>
+				<div id="drum-major"><div id="player-1" data-toggle="tooltip" data-animation="false" data-placement="left" title="Le Regement"><a class="play"></a></div></div>
+				<audio loop class="music" src="music-p/Le Regiment.mp3" type="audio/mp3"> </audio><br><br><br>
 			</div>
 		</div>
 		<div class="row">
@@ -87,7 +88,7 @@
 					</div></li>
 					<li><div>
 						<time>1965</time>
-						<b>"Hang on Sloopy"</b> first performed and later became a 3rd to 4th quarter tradition at every football game.
+						<b>"Hang on Sloopy"</b> was first performed and later became a 3rd to 4th quarter tradition at every football game.
 					</div></li>
 					<li><div>
 						<time>1968</time>
@@ -230,27 +231,35 @@
 	<script src="js/pie.js"></script>
 	
 	<script>
-		var playing = false; // Music playing
+		var playing = -1; // Music playing, -1 if none, 0 if 1st, 1 if 2nd
 		$(function () {
 			$('[data-toggle="tooltip"]').tooltip(); // Activate all tooltips
-			$('#player').on("click", "#play", function() {
-				playMusic();
-			}).on("click", "#pause", function() {
+			$('#player-0, #player-1').on("click", ".play", function() {
+				var i = $(this).parent().attr("id")[7];
+				playMusic(i);
+				console.log("playin");
+			}).on("click", ".pause", function() {
 				pauseMusic();
 			});
 
 			preload("img/instruments/0.png", "img/instruments/1.png", "img/instruments/2.png", "img/instruments/3.png", "img/instruments/4.png", "img/instruments/5.png", "img/instruments/6.png", "img/instruments/7.png", "img/instruments/8.png", "img/instruments/9.png", "img/instruments/10.png"); // Preload instruments
 		});
 		
-		function playMusic() {
-			$("#play").attr('id', 'pause');
-			$('#music')[0].play();
-			playing = true;	
+		function playMusic(i) {
+			$("#player-"+i+" > .play").attr('class', 'pause');
+			var j = (i == 1) ? 0 : 1;
+			$('.music')[j].pause();
+			$("#player-"+j+" > .pause").attr('class', 'play');
+			$('.music')[i].play();
+			playing = i;	
 		}
-		function pauseMusic() {
-			$("#pause").attr('id', 'play');
-			$('#music')[0].pause();
-			playing = false;
+		function pauseMusic(i) {
+			if (playing > -1) {
+				$("#player-"+playing+" > .pause").attr('class', 'play');
+				$('.music')[0].pause();
+				$('.music')[1].pause();
+				playing = -1;
+			}
 		}
 		
 		var images = [];
@@ -299,7 +308,6 @@
 
 		// Smooth scroll for anchors: https://stackoverflow.com/questions/19012495/smooth-scroll-to-div-id-jquery
 		$(document).on('click', 'a[href^="#"]', function(e) {
-			console.log("Test");
 			var id = $(this).attr('href');
 			var $id = $(id);
 			if ($id.length === 0) {
