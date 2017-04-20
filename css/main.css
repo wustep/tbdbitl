@@ -8,9 +8,13 @@ body {
 	font-family: "CapitaLig", "Open-Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: bold;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 576px) {
 	.navbar-brand {
 		font-size: 1.0rem;
+		padding: .5rem 0;
+	}
+	h1.display-3 {
+		font-size: 3.2rem;
 	}
 }
 b { /* Fix for fonts not appearing as bold */
@@ -25,6 +29,12 @@ b { /* Fix for fonts not appearing as bold */
 .tooltipper {
 	display: inline-block;
 	border-bottom: 4px double #bb0000;
+}
+.tooltipper-2 {
+	color: #bb0000;
+}
+.tooltipper-2:hover {
+	cursor: default;
 }
 .tooltip.tooltip-top, .tooltip.bs-tether-element-attached-bottom {
 	margin-top: 10px;
@@ -78,7 +88,7 @@ b { /* Fix for fonts not appearing as bold */
 	text-decoration: underline;
 }
 /* History */
-#band-guy {
+#band-guy, #band-guy-tooltip { /* Tooltip is for credits at bottom */
 	background: url("../img-p/band-guy.png");
 	width: 100px;
 }
@@ -86,12 +96,16 @@ b { /* Fix for fonts not appearing as bold */
 	background: url("../img/drum-major.png");
 	width: 86px;
 }
-#band-guy, #drum-major {
+#band-guy, #drum-major, #band-guy-tooltip {
 	margin-top: 53px;
 	background-size: contain;
 	background-repeat: no-repeat;
 	height: 200px;
 	display: inline-block;
+}
+#band-guy-tooltip {
+	margin: 3px;
+	text-align: center;
 }
 #player {
 	position: absolute;

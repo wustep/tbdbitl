@@ -160,6 +160,7 @@ $(".fa-arrow-left.instrument-arrow").on("click", function (e) {
 	removeLastRow(dataset, dataset2, csv);
 });
 
+/*
 $("body").keydown(function(e) {
 	if (e.keyCode == 39) { // Right
 		getNextRow(dataset, dataset2, csv);
@@ -167,7 +168,7 @@ $("body").keydown(function(e) {
 		removeLastRow(dataset, dataset2, csv);
 	}
 });
-
+*/
 /* Data manipulation functions */
 
 function getNextRow(dataset, dataset2, csv) { // Get next band row of instruments and add to dataset
