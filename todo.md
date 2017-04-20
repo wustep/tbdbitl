@@ -1,14 +1,14 @@
 # TODO
 
-### Bugs
-- Fix tooltip transitioning errors
+## Usability
 - SVG Mobile scaling for smallest devices
-- Increase clickability of the dots in mobile
+- Increase clickability of the dots on mobile
+- Responsive 
 
-### Design
+## Design
 - Swap play icon to font-awesome 
+- Center Marching Band guy tooltip
 
 ## Features
-- Add another play button for the other song
 - Drum major / D-Row stats
 - Add next/prev button to video modal

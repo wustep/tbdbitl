@@ -116,6 +116,10 @@ b { /* Fix for fonts not appearing as bold */
 	border-radius: 100%;
 	border: 1px solid black;
 	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-ms-user-select: none; 
 }
 #player-0 {
 	margin-left: 23px;
@@ -127,10 +131,6 @@ b { /* Fix for fonts not appearing as bold */
 	position: absolute;
 	margin-left: -10.5px;
 	margin-top: 4px;
-	-webkit-user-select: none;
-	-moz-user-select: none; 
-	-khtml-user-select: none; 
-	-ms-user-select: none; 
 }
 .play {
 	width: 22px;

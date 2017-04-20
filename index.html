@@ -10,7 +10,7 @@
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="fonts/capita light/stylesheet.css" rel="stylesheet">
 	<link href="css/font-awesome.min.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
+	<link href="css/main.css?1" rel="stylesheet">
 	<link href="css/d3-tip.css" rel="stylesheet">
  </head>
  <body>
@@ -237,7 +237,6 @@
 			$('#player-0, #player-1').on("click", ".play", function() {
 				var i = $(this).parent().attr("id")[7];
 				playMusic(i);
-				console.log("playin");
 			}).on("click", ".pause", function() {
 				pauseMusic();
 			});
