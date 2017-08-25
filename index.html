@@ -64,7 +64,7 @@
 				<audio loop class="music" src="music-p/Buckeye Battle Cry.mp3" type="audio/mp3"> </audio>
 			</div>
 			<div class="col-md-2 col-6" align="center">
-				<div id="drum-major"><div id="player-1" data-toggle="tooltip" data-animation="false" data-placement="left" title="Le Regement"><a class="play"></a></div></div>
+				<div id="drum-major"><div id="player-1" data-toggle="tooltip" data-animation="false" data-placement="left" title="Le Regiment"><a class="play"></a></div></div>
 				<audio loop class="music" src="music-p/Le Regiment.mp3" type="audio/mp3"> </audio><br><br><br>
 			</div>
 		</div>
@@ -183,20 +183,20 @@
 					<p class="lead">
 						Sources:<br>
 						<ul class="list-group">
-							<li class="list-group-item"><a href="	https://tbdbitl.osu.edu/sites/tbdbitl.osu.edu/files/media-guide-2016-web.pdf">The Ohio State University Marching Band: Media and Performance Guide 2016</a></li>
 							<li class="list-group-item"><a href="https://tbdbitl.osu.edu/people/leonardi.19">Kevin Leonardi,
 							Senior Director of Marketing & Communications</a></li>
-							<li class="list-group-item"><a href="https://www.tbdbitl.com/grandroster.php">TBDBITL Grand Roster - 1878 through 2016</a></li>
-							<li class="list-group-item"><a href="https://twitter.com/TBDBITL/status/768124246694334464">OSU Marching Band 2016 Majors</a></li>
-							<li class="list-group-item"><a href="https://tbdbitl.osu.edu/marching-band/traditions">Traditions: The Ohio State Marching and Athletic Bands</a></li>
 							<li class="list-group-item"><a href="https://brand.osu.edu/">Ohio State Brand Guidelines</a></li>
+							<li class="list-group-item"><a href="https://twitter.com/TBDBITL/status/768124246694334464">OSU Marching Band 2016 Majors</a></li>
+							<li class="list-group-item"><a href="https://www.tbdbitl.com/grandroster.php">TBDBITL Grand Roster - 1878 through 2016</a></li>
+							<li class="list-group-item"><a href="	https://tbdbitl.osu.edu/sites/tbdbitl.osu.edu/files/media-guide-2016-web.pdf">The Ohio State University Marching Band: Media and Performance Guide 2016</a></li>
+							<li class="list-group-item"><a href="https://tbdbitl.osu.edu/marching-band/traditions">Traditions: The Ohio State Marching and Athletic Bands</a></li>
 							<li class="list-group-item"><a href="https://www.youtube.com/channel/UCCyxQx_LAmLfY9gokoMNtMg">YouTube: Lantern OSU</a></li>
 							<li class="list-group-item"><a href="https://www.youtube.com/user/OSUBuckeyeTV">YouTube: Lantern TV</a></li>
 						</ul>
 					</p><p class="lead">
 						<ul class="list-group">
-							<li class="list-group-item"><span class="tooltipper-2" data-toggle="tooltip" data-animation="false" data-html="true" title="<span id='band-guy-tooltip'></span>">Marching Band Guy</span>&nbsp;from&nbsp;<a href="http://tbdbitlmentoring.osu.edu">TBDBITL Alumni Mentoring Program</a></li>
 							<li class="list-group-item">Drum Major, Gender, Major, and Instrument Icons by Rui Lu</li>
+							<li class="list-group-item"><span class="tooltipper-2" data-toggle="tooltip" data-animation="false" data-html="true" title="<span id='band-guy-tooltip'></span>">Marching Band Guy</span>&nbsp;from&nbsp;<a href="http://tbdbitlmentoring.osu.edu">TBDBITL Alumni Mentoring Program</a></li>
 						</ul>
 					</p>
 				</div>
@@ -291,6 +291,13 @@
 		window.addEventListener("resize", callbackFunc);
 		window.addEventListener("scroll", callbackFunc);
 		
+		if (window.innerWidth <= 800) {
+			for (var i = 0; i < items.length; i++) {
+				items[i].classList.add("in-view");
+				console.log("added width");
+			}
+		}
+		
 		/* Dynamic modal for shows list */ 
 		$('#showModal').on('hidden.bs.modal', function () { // End video on exit
 			$('#showModal .modal-body').html('');
@@ -317,5 +324,13 @@
 			$('body, html').animate({scrollTop: pos});
 		});
 	</script>
+	<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-43013610-2', 'auto');
+	ga('send', 'pageview');
+    </script>
  </body>
 </html>
