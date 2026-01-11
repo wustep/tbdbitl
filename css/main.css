@@ -1,81 +1,177 @@
+/* CSS Custom Properties for Ohio State Theme */
+:root {
+  --osu-scarlet: #BA0C2F;
+  --osu-scarlet-dark: #9B0A27;
+  --osu-gray: #4F4F4F;
+  --osu-gray-light: #A7A9AC;
+  --osu-gray-lighter: #E5E5E5;
+  --osu-white: #FFFFFF;
+  --font-display: 'Bebas Neue', 'Impact', sans-serif;
+  --font-heading: 'Bitter', 'Georgia', serif;
+  --font-body: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+}
+
 /* Main container */
 body {
-  /*background-color: #E9E9E9;*/
+  font-family: var(--font-body);
+  color: var(--osu-gray);
+  background-color: #FAFAFA;
   padding-top: 55px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--osu-gray);
+}
+
+h2 {
+  font-size: 1.75rem;
+  letter-spacing: 0.02em;
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--osu-scarlet);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--osu-scarlet-dark);
 }
 
 .navbar-brand {
-  font-family: "Helvetica Neue", "Helvetica", "Open Sans", Arial, sans-serif;
-  font-weight: bold;
-  font-size: 18px;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+  color: var(--osu-gray) !important;
 }
+
+.navbar-nav .nav-link {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--osu-gray) !important;
+  transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--osu-scarlet) !important;
+}
+
 @media screen and (max-width: 576px) {
   .navbar-brand {
     font-size: 1rem;
     padding: 0.5rem 0;
   }
   h1.display-3 {
-    font-size: 2.7rem;
+    font-size: 2.2rem;
   }
 }
+
 b {
-  /* Fix for fonts not appearing as bold */
-  font-weight: bolder;
-  font-weight: bold;
+  font-weight: 700;
 }
+
 /* Bootstrap Tooltips */
+.tooltip {
+  opacity: 1 !important;
+}
+
 .tooltip-inner {
   text-align: left;
   max-width: none;
+  font-family: var(--font-body);
+  background-color: var(--osu-gray);
+  opacity: 1;
 }
+
+.tooltip.bs-tether-element-attached-top .tooltip-inner,
+.tooltip.bs-tether-element-attached-bottom .tooltip-inner,
+.tooltip.bs-tether-element-attached-left .tooltip-inner,
+.tooltip.bs-tether-element-attached-right .tooltip-inner {
+  opacity: 1;
+}
+
 .tooltipper {
   display: inline-block;
-  border-bottom: 4px double #bb0000;
+  border-bottom: 3px double var(--osu-scarlet);
 }
+
 .tooltipper-2 {
-  color: #bb0000;
+  color: var(--osu-scarlet);
+  font-weight: 600;
 }
+
 .tooltipper-2:hover {
   cursor: default;
 }
+
 .tooltip.tooltip-top,
 .tooltip.bs-tether-element-attached-bottom {
   margin-top: 10px;
 }
+
 /* Statistics */
 .stat,
 .stat-alt {
-  font-weight: bold;
+  font-weight: 700;
 }
+
 .stat {
-  color: #bb0000 !important;
+  color: var(--osu-scarlet) !important;
+  font-family: var(--font-heading);
 }
+
 .stat-alt {
-  color: #666666 !important;
+  color: var(--osu-gray) !important;
+  font-family: var(--font-body);
 }
+
 .stat0,
 #acronym {
   font-size: 95px;
 }
+
 .stat1 {
   font-size: 58px;
 }
+
 .stat2,
 #expansion {
   font-size: 39px;
 }
+
 .stat3 {
   font-size: 27px;
 }
+
 .stat4 {
   font-size: 17px;
 }
+
 #acronym,
 #expansion {
-  font-family: "Georgia", "Times", "Open-Sans", "Helvetica Neue", "Helvetica",
-    sans-serif;
-  color: #bb0000;
+  font-family: var(--font-display);
+  color: var(--osu-scarlet);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
+
+#expansion {
+  letter-spacing: 0.02em;
+  font-size: 36px;
+}
+
 @media screen and (max-width: 992px) {
   .stat0,
   #acronym {
@@ -86,28 +182,33 @@ b {
   }
   .stat2,
   #expansion {
-    font-size: 36px;
+    font-size: 32px;
   }
 }
+
 .acro,
 .stat {
   cursor: default;
 }
+
 .acro.selected {
   font-weight: bold;
   text-decoration: underline;
+  text-decoration-color: var(--osu-gray);
 }
+
 /* History */
 #band-guy,
 #band-guy-tooltip {
-  /* Tooltip is for credits at bottom */
   background: url("../img-p/band-guy.png");
   width: 100px;
 }
+
 #drum-major {
   background: url("../img/drum-major.png");
   width: 86px;
 }
+
 #band-guy,
 #drum-major,
 #band-guy-tooltip {
@@ -117,10 +218,12 @@ b {
   height: 200px;
   display: inline-block;
 }
+
 #band-guy-tooltip {
   margin: 3px;
   text-align: center;
 }
+
 #player-0,
 #player-1 {
   position: absolute;
@@ -129,46 +232,63 @@ b {
   margin-top: 73px;
   background-color: white;
   border-radius: 100%;
-  border: 1px solid black;
+  border: 2px solid var(--osu-gray-light);
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -khtml-user-select: none;
   -ms-user-select: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+
+#player-0:hover,
+#player-1:hover {
+  border-color: var(--osu-scarlet);
+  box-shadow: 0 2px 8px rgba(186, 12, 47, 0.2);
+}
+
 #player-0 {
   margin-left: 23px;
 }
+
 #player-1 {
   margin-left: 32px;
 }
+
 .play,
 .pause {
   position: absolute;
   margin-left: -10.5px;
   margin-top: 4px;
 }
+
 .play {
   width: 22px;
   height: 30px;
   border-top: 15px solid transparent;
-  border-left: 24px solid #bb0000;
+  border-left: 24px solid var(--osu-scarlet);
   border-bottom: 15px solid transparent;
+  transition: border-left-color 0.2s ease;
 }
+
 .play:hover {
-  border-left: 25px solid #666666;
+  border-left-color: var(--osu-scarlet-dark);
 }
+
 .pause {
   width: 21px;
   height: 30px;
-  border-right: 8px solid #bb0000;
-  border-left: 8px solid #bb0000;
+  border-right: 8px solid var(--osu-scarlet);
+  border-left: 8px solid var(--osu-scarlet);
+  transition: border-color 0.2s ease;
 }
+
 .pause:hover {
-  border-right: 9px solid #666666;
-  border-left: 9px solid #666666;
+  border-right-color: var(--osu-scarlet-dark);
+  border-left-color: var(--osu-scarlet-dark);
 }
-/* History Timeline, adapted from https://webdesign.tutsplus.com/tutorials/building-a-vertical-timeline-with-css-and-a-touch-of-javascript--cms-26528 */
+
+/* History Timeline */
 .timeline ul {
   color: white;
 }
@@ -179,7 +299,7 @@ b {
   width: 6px;
   margin: 0 auto;
   padding-top: 50px;
-  background: #cacaca;
+  background: var(--osu-gray-light);
 }
 
 .timeline ul li::after {
@@ -192,14 +312,19 @@ b {
   height: 30px;
   border-radius: 50%;
   background: inherit;
+  transition: background 0.5s ease-in-out;
 }
 
 .timeline ul li div {
   position: relative;
   bottom: 0;
   width: 400px;
-  padding: 15px;
-  background: #bb0000;
+  padding: 18px 20px;
+  background: var(--osu-scarlet);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: var(--font-body);
+  line-height: 1.5;
 }
 
 .timeline ul li div::before {
@@ -218,7 +343,7 @@ b {
 .timeline ul li:nth-child(odd) div::before {
   left: -15px;
   border-width: 8px 16px 8px 0;
-  border-color: transparent #bb0000 transparent transparent;
+  border-color: transparent var(--osu-scarlet) transparent transparent;
 }
 
 .timeline ul li:nth-child(even) div {
@@ -228,21 +353,20 @@ b {
 .timeline ul li:nth-child(even) div::before {
   right: -15px;
   border-width: 8px 0 8px 16px;
-  border-color: transparent transparent transparent #bb0000;
+  border-color: transparent transparent transparent var(--osu-scarlet);
 }
 
 time {
   display: block;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
   margin-bottom: 8px;
-}
-.timeline ul li::after {
-  transition: background 0.5s ease-in-out;
 }
 
 .timeline ul li.in-view::after {
-  background: #666666;
+  background: var(--osu-gray);
 }
 
 .timeline ul li div {
@@ -264,13 +388,13 @@ time {
   visibility: visible;
   opacity: 1;
 }
+
 @media screen and (max-width: 900px) {
   .timeline ul li div {
     width: 250px;
   }
   .timeline ul li:nth-child(even) div {
     left: -289px;
-    /*250+45-6*/
   }
 }
 
@@ -287,44 +411,53 @@ time {
   .timeline ul li:nth-child(even) div::before {
     left: -15px;
     border-width: 8px 16px 8px 0;
-    border-color: transparent #f45b69 transparent transparent;
+    border-color: transparent var(--osu-scarlet) transparent transparent;
   }
 }
+
 /* People */
 #members {
   text-align: center;
 }
+
 #members-inner {
   text-align: left;
   display: inline-block;
 }
+
 #genders {
   vertical-align: center;
   text-align: center;
 }
+
 #male {
   background: url("../img/M.png");
   width: 68px;
   margin: 0 30px 0 0;
 }
+
 #female {
   background: url("../img/F.png");
   width: 44px;
   background-repeat: no-repeat;
   margin: 0 auto;
 }
+
 #male,
 #female {
   background-size: contain;
   height: 100px;
   display: inline-block;
 }
+
 #engineering {
   background: url("../img/engineering.png");
 }
+
 #music {
   background: url("../img/music.png");
 }
+
 #engineering,
 #music {
   background-size: contain;
@@ -333,126 +466,183 @@ time {
   width: 30px;
   display: inline-block;
 }
+
 #majors {
   text-align: center;
   vertical-align: center;
   max-width: 250px;
 }
+
 .borderless td,
 .borderless th {
   border: none;
   padding: 0;
 }
+
 table.borderless {
   margin: 0 auto;
 }
+
 #years-chart {
   width: 370px;
   height: 350px;
 }
+
 .bar > rect {
-  fill: #bb0000;
+  fill: var(--osu-scarlet);
+  transition: fill 0.2s ease;
 }
+
+.bar > rect:hover {
+  fill: var(--osu-scarlet-dark);
+}
+
 .bar > .value {
   fill: white;
+  font-family: var(--font-body);
+  font-weight: 600;
 }
+
 /* Instruments - Dynamic Donut Pie Chart */
 #instruments-pie {
   width: 660px;
   height: 450px;
 }
+
 svg {
   width: 100%;
   height: 100%;
 }
+
+svg text {
+  font-family: var(--font-body);
+}
+
 path.slice {
   stroke-width: 2px;
+  transition: opacity 0.2s ease;
 }
+
+path.slice:hover {
+  opacity: 0.85;
+}
+
 polyline {
   opacity: 0.3;
-  stroke: black;
+  stroke: var(--osu-gray);
   stroke-width: 2px;
   fill: none;
 }
+
 .labelValue {
   font-size: 60%;
-  opacity: 0.5;
+  opacity: 0.6;
 }
+
 .toolTip {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-body);
   position: absolute;
   display: none;
   width: auto;
   height: auto;
-  background: none repeat scroll 0 0 white;
+  background: white;
   border: 0 none;
-  border-radius: 8px;
-  box-shadow: -3px 3px 15px #888888;
-  color: black;
-  font: 12px sans-serif;
-  padding: 5px;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  color: var(--osu-gray);
+  font-size: 13px;
+  padding: 8px 12px;
   text-align: center;
 }
+
 .instrument-arrow {
-  /* Prevent highlighting for arrow */
   -webkit-user-select: none;
   -moz-user-select: none;
   -khtml-user-select: none;
   -ms-user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--osu-gray-lighter);
+  color: var(--osu-gray);
+  font-size: 12px;
+  transition: all 0.2s ease;
+  position: relative;
+  top: -2px;
 }
+
 .instrument-arrow:hover {
-  color: #bb0000;
+  background-color: var(--osu-scarlet);
+  color: white;
   cursor: pointer;
+  transform: scale(1.05);
 }
-/* Instruments - Dynamic Instruments Chart */
+
+/* Instruments Chart */
 #instruments-chart {
   width: 460px;
   height: 450px;
 }
+
 .instrument-0 {
   background: url("../img/instruments/0.png");
   height: 70px;
 }
+
 .instrument-1 {
   background: url("../img/instruments/1.png");
   height: 70px;
 }
+
 .instrument-2 {
   background: url("../img/instruments/2.png");
   height: 70px;
 }
+
 .instrument-3 {
   background: url("../img/instruments/3.png");
   height: 70px;
 }
+
 .instrument-4 {
   background: url("../img/instruments/4.png");
   height: 50px;
 }
+
 .instrument-5 {
   background: url("../img/instruments/5.png");
   height: 95px;
 }
+
 .instrument-6 {
   background: url("../img/instruments/6.png");
   height: 70px;
 }
+
 .instrument-7 {
   background: url("../img/instruments/7.png");
   height: 70px;
 }
+
 .instrument-8 {
   background: url("../img/instruments/8.png");
   height: 70px;
 }
+
 .instrument-9 {
   background: url("../img/instruments/9.png");
   height: 80px;
 }
+
 .instrument-10 {
   background: url("../img/instruments/10.png");
   height: 90px;
 }
+
 .instrument {
   background-size: contain;
   background-repeat: no-repeat;
@@ -462,13 +652,112 @@ polyline {
   text-align: center;
   display: block;
 }
+
 /* Show Buttons and Modal */
 .show-btn {
-  margin: 3px;
+  margin: 4px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  border-color: var(--osu-scarlet);
+  color: var(--osu-scarlet);
+  border-radius: 4px;
+  padding: 8px 16px;
+  transition: all 0.2s ease;
 }
+
 .show-btn:hover {
   cursor: pointer;
+  background-color: var(--osu-scarlet);
+  border-color: var(--osu-scarlet);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(186, 12, 47, 0.25);
 }
+
 #showModal .modal-content {
   text-align: center;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+#showModal .modal-header {
+  border-bottom: 3px solid var(--osu-scarlet);
+}
+
+#showModal .modal-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--osu-gray);
+}
+
+#showModal .modal-footer {
+  border-top: 1px solid var(--osu-gray-lighter);
+}
+
+/* Jumbotron / About Section */
+.jumbotron {
+  background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
+  border-radius: 8px;
+  border-left: 5px solid var(--osu-scarlet);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.jumbotron h1.display-3 {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  letter-spacing: 0.05em;
+  color: var(--osu-scarlet);
+  text-transform: uppercase;
+}
+
+.jumbotron .lead {
+  font-family: var(--font-body);
+  color: var(--osu-gray);
+}
+
+.jumbotron .badge {
+  font-family: var(--font-body);
+  font-weight: 600;
+  background-color: var(--osu-scarlet);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.list-group-item {
+  font-family: var(--font-body);
+  border-left: 3px solid transparent;
+  transition: border-left-color 0.2s ease, background-color 0.2s ease;
+}
+
+.list-group-item:hover {
+  border-left-color: var(--osu-scarlet);
+  background-color: #fcfcfc;
+}
+
+.list-group-item a {
+  color: var(--osu-gray);
+  text-decoration: none;
+}
+
+.list-group-item a:hover {
+  color: var(--osu-scarlet);
+}
+
+/* Horizontal rule styling */
+hr {
+  border-top: 2px solid var(--osu-gray-lighter);
+  margin: 1rem 0;
+}
+
+hr.my-4 {
+  border-top: 3px solid var(--osu-scarlet);
+  width: 60px;
+  margin: 1.5rem auto;
 }
