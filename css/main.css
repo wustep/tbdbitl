@@ -16,8 +16,86 @@ body {
 	font-family: var(--font-body);
 	color: var(--osu-gray);
 	background-color: #fafafa;
+	background-image: radial-gradient(
+		circle at 25px 25px,
+		rgba(0, 0, 0, 0.015) 2px,
+		transparent 0
+	);
+	background-size: 50px 50px;
 	padding-top: 55px;
 	line-height: 1.6;
+}
+
+/* Navbar - Subtle and Refined */
+.navbar {
+	background: rgba(255, 255, 255, 0.95) !important;
+	backdrop-filter: blur(8px);
+	border-bottom: 2px solid var(--osu-scarlet);
+	box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+	padding: 0.4rem 1rem;
+	min-height: auto;
+}
+
+.navbar-toggler {
+	padding: 0.25rem 0.5rem;
+	font-size: 0.9rem;
+	border: 1px solid var(--osu-gray-lighter);
+}
+
+/* Hero Section Drama */
+#top {
+	position: relative;
+	padding: 3rem 1rem;
+}
+
+/* Subtle gradient spanning full width at top of page */
+body::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 400px;
+	background: linear-gradient(
+		180deg,
+		rgba(186, 12, 47, 0.025) 0%,
+		transparent 100%
+	);
+	pointer-events: none;
+	z-index: -1;
+}
+
+/* Page Load Animation */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+#top,
+.row > div {
+	animation: fadeInUp 0.6s ease-out backwards;
+}
+
+#top {
+	animation-delay: 0.1s;
+}
+.row:nth-child(2) > div {
+	animation-delay: 0.15s;
+}
+.row:nth-child(3) > div {
+	animation-delay: 0.2s;
+}
+.row:nth-child(4) > div {
+	animation-delay: 0.25s;
+}
+.row:nth-child(5) > div {
+	animation-delay: 0.3s;
 }
 
 h1,
@@ -317,8 +395,15 @@ b {
 	width: 30px;
 	height: 30px;
 	border-radius: 50%;
-	background: inherit;
-	transition: background 0.5s ease-in-out;
+	background: linear-gradient(
+		145deg,
+		#d4d4d4 0%,
+		var(--osu-gray-light) 50%,
+		#a0a0a0 100%
+	);
+	box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4),
+		0 2px 6px rgba(0, 0, 0, 0.2);
+	transition: background 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 
 .timeline ul li div {
@@ -372,7 +457,14 @@ time {
 }
 
 .timeline ul li.in-view::after {
-	background: var(--osu-gray);
+	background: linear-gradient(
+		145deg,
+		#d41b3c 0%,
+		var(--osu-scarlet) 50%,
+		#9b0a27 100%
+	);
+	box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.2),
+		0 2px 8px rgba(186, 12, 47, 0.4);
 }
 
 .timeline ul li div {
@@ -570,6 +662,13 @@ polyline {
 	text-align: center;
 }
 
+/* Instrument arrows container - keep together */
+.instrument-arrows {
+	display: inline-flex;
+	gap: 4px;
+	white-space: nowrap;
+}
+
 .instrument-arrow {
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -679,16 +778,34 @@ polyline {
 
 /* Show Buttons and Modal */
 .show-btn {
-	margin: 4px;
+	position: relative;
+	margin: 6px;
 	font-family: var(--font-body);
 	font-weight: 600;
-	font-size: 0.9rem;
-	letter-spacing: 0.02em;
-	border-color: var(--osu-scarlet);
+	font-size: 0.85rem;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	border: 2px solid var(--osu-scarlet);
 	color: var(--osu-scarlet);
-	border-radius: 4px;
-	padding: 8px 16px;
-	transition: all 0.2s ease;
+	border-radius: 0;
+	padding: 12px 20px;
+	background: white;
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.show-btn::before {
+	content: "▶";
+	margin-right: 8px;
+	font-size: 0.7em;
+	opacity: 0;
+	display: inline-block;
+	transform: translateX(-5px);
+	transition: all 0.25s ease;
+}
+
+.show-btn:hover::before {
+	opacity: 1;
+	transform: translateX(0);
 }
 
 .show-btn:hover {
@@ -696,8 +813,8 @@ polyline {
 	background-color: var(--osu-scarlet);
 	border-color: var(--osu-scarlet);
 	color: white;
-	transform: translateY(-1px);
-	box-shadow: 0 4px 8px rgba(186, 12, 47, 0.25);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(186, 12, 47, 0.35);
 }
 
 #showModal .modal-content {
@@ -723,10 +840,64 @@ polyline {
 
 /* Jumbotron / About Section */
 .jumbotron {
-	background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
-	border-radius: 8px;
-	border-left: 5px solid var(--osu-scarlet);
-	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+	background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+	border-radius: 0;
+	border-left: 6px solid var(--osu-scarlet);
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08),
+		inset 0 0 0 1px rgba(186, 12, 47, 0.05);
+	position: relative;
+	overflow: hidden;
+}
+
+.jumbotron::before {
+	content: "O";
+	position: absolute;
+	bottom: 25px;
+	right: 30px;
+	font-family: var(--font-display);
+	font-size: 140px;
+	color: rgba(186, 12, 47, 0.04);
+	line-height: 1;
+	pointer-events: none;
+	transform: scaleX(1.15);
+	letter-spacing: -0.05em;
+}
+
+@media screen and (max-width: 768px) {
+	.jumbotron::before {
+		font-size: 90px;
+		bottom: 15px;
+		right: 15px;
+	}
+}
+
+/* Credits line in jumbotron */
+.credits-line {
+	font-size: 1rem;
+	line-height: 2.2;
+}
+
+.credit {
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.credits-line .badge {
+	font-size: 0.65rem;
+	padding: 4px 8px;
+	margin-right: 4px;
+	vertical-align: middle;
+}
+
+/* Custom selection colors */
+::selection {
+	background: var(--osu-scarlet);
+	color: white;
+}
+
+::-moz-selection {
+	background: var(--osu-scarlet);
+	color: white;
 }
 
 .jumbotron h1.display-3 {
@@ -763,20 +934,47 @@ polyline {
 	border-left: 3px solid transparent;
 	transition: border-left-color 0.2s ease, background-color 0.2s ease;
 	text-align: left;
+	padding: 0.75rem 1.25rem;
 }
 
 .list-group-item:hover {
 	border-left-color: var(--osu-scarlet);
-	background-color: #fcfcfc;
+	background-color: rgba(186, 12, 47, 0.03);
 }
 
-.list-group-item a {
+/* Source list items with only a link - make entire row clickable */
+.list-group-item.source-link {
+	padding: 0 !important;
+	position: relative;
+}
+
+.list-group-item.source-link a {
 	color: var(--osu-gray);
 	text-decoration: none;
+	display: block;
+	width: 100%;
+	padding: 0.75rem 1.25rem;
+	transition: color 0.2s ease;
+	box-sizing: border-box;
+}
+
+.list-group-item.source-link:hover {
+	cursor: pointer;
+}
+
+.list-group-item.source-link:hover a {
+	color: var(--osu-scarlet);
+}
+
+/* Regular list items with inline links */
+.list-group-item a {
+	color: var(--osu-scarlet);
+	text-decoration: none;
+	transition: color 0.2s ease;
 }
 
 .list-group-item a:hover {
-	color: var(--osu-scarlet);
+	text-decoration: underline;
 }
 
 /* Horizontal rule styling */
