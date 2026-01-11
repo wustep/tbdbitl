@@ -505,8 +505,17 @@ table.borderless {
 
 /* Instruments - Dynamic Donut Pie Chart */
 #instruments-pie {
-  width: 660px;
+  width: 100%;
+  max-width: 660px;
   height: 450px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 700px) {
+  #instruments-pie {
+    height: 350px;
+  }
 }
 
 svg {
@@ -584,8 +593,17 @@ polyline {
 
 /* Instruments Chart */
 #instruments-chart {
-  width: 460px;
+  width: 100%;
+  max-width: 460px;
   height: 450px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 500px) {
+  #instruments-chart {
+    height: 350px;
+  }
 }
 
 .instrument-0 {
@@ -730,10 +748,15 @@ polyline {
   text-transform: uppercase;
 }
 
+.list-group {
+  text-align: left;
+}
+
 .list-group-item {
   font-family: var(--font-body);
   border-left: 3px solid transparent;
   transition: border-left-color 0.2s ease, background-color 0.2s ease;
+  text-align: left;
 }
 
 .list-group-item:hover {
